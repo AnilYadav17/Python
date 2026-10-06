@@ -35,32 +35,42 @@ This repository serves as an organized, comprehensive archive of my **Python pro
 
 The codebase is highly organized into logical folders mapping to specific topics, challenges, and reference guides.
 
-### 📚 Core Modules
+### 📚 Core Learning Modules
+
+Each module contains structured classroom code (`Class_Work/`), theoretical notes, and reference implementations:
 
 | Directory | Description / Concepts Covered |
 | :--- | :--- |
-| 📁 **[01_Basics](./01_Basics)** | I/O, conditions, calculations, loops, strings, and fundamental concepts. |
-| 📁 **[02_Functions](./02_Functions)** | Function declarations, scope, closures, decorators, and functional programming. |
-| 📁 **[03_Modules&Packages](./03_Modules&Packages)** | Code modularity, built-in libraries, and custom packages. |
-| 📁 **[04_OOPS](./04_OOPS)** | Object-Oriented Programming: Classes, Inheritance, Polymorphism, Abstraction. |
-| 📁 **[05_Exception_Handling](./05_Exception_Handling)** | Try/Except, custom exceptions, and robust error management. |
-| 📁 **[06_File_Handling](./06_File_Handling)** | Reading/Writing files, working with data streams. |
+| 📁 **[01_Basics](./01_Basics)** | I/O, data types, operators, conditionals, loops, patterns, strings, and collections. |
+| 📁 **[02_Functions](./02_Functions)** | Function declarations, scope (LEGB), lambdas, recursion, closures, and decorators. |
+| 📁 **[03_Modules&Packages](./03_Modules%26Packages)** | Modular code architecture, standard libraries, and custom multi-file package creation. |
+| 📁 **[04_OOPS](./04_OOPS)** | OOP: Classes, objects, constructors, inheritance, polymorphism, and abstraction. |
+| 📁 **[05_Exception_Handling](./05_Exception_Handling)** | `try`/`except`/`finally`, built-in exception handling, and custom error classes. |
+| 📁 **[06_File_Handling](./06_File_Handling)** | File I/O modes (`r`, `w`, `a`, `r+`, `w+`, `x`), buffers, and context managers. |
+
+### 📚 Centralized Assignments Hub
+
+* 📁 **[Assignments](./Assignments)** — **647+ Topic-Wise Assignment Solutions & Question Sheets**
+  * `01_Basics/`: 10 comprehensive subtopics (Input/Output, Conditions, Calculations, Loops, Patterns, Strings, Lists, Tuples, Sets, Dictionaries).
+  * `02_Functions/`: Function basics, lambda expressions, recursion, and decorators.
+  * `03_Modules_and_Packages/`: Real-world modular packages and hospital management system.
+  * `04_OOPS/`: Object-oriented programming, inheritance, polymorphism, and abstraction tasks.
 
 ### 🚀 Challenges & Problem Solving
 
 | Directory | Description / Concepts Covered |
 | :--- | :--- |
-| 🏆 **[30_Days_Revision](./30_Days_Revision_Challenge)** | A rigorous 30-day markdown guide covering the entirety of Python fundamentals to advanced topics. |
-| 💻 **[Leetcode](./Leetcode)** | Solutions to algorithmic challenges categorized by topic (Array, Strings, etc). |
+| 🏆 **[30_Days_Revision](./30_Days_Revision)** | A rigorous 30-day markdown guide covering Python fundamentals to advanced topics. |
+| 💻 **[Leetcode](./Leetcode)** | Algorithmic problem solutions categorized by topic (Array, Strings). |
+| 🧪 **[Test](./Test)** | Periodic unit tests, preparation assessments, and mock exams across learning stages. |
+| 📋 **[Practice Sheets](./Practice%20Sheets)** | PDF question sheets, MCQs, and target practice problem sets. |
 
-### 🛠️ Practice & Resources
+### 🛠️ Reference Guides & Utilities
 
-* 📁 **[Assignments](./Assignments)** — Solutions to official/graded assignments.
-* 📁 **[Class Work](./Class%20Work)** — Structured notes and code snippets matching classroom sessions.
-* 📁 **[Practice Sheets](./Practice%20Sheets)** — PDF guides and extra task files for targeted self-study.
-* 📁 **[Sources](./Sources)** — Critical reference materials, including Interview Questions & Answers.
-* 📁 **[Imps](./Imps)** — Critical helper algorithms and snippets.
-* 📁 **[Demo](./Demo)** & 📁 **[Test](./Test)** — Quick playgrounds for testing expressions and language behaviors.
+* 📁 **[MASTER](./MASTER)** — 18 extensive mastery topics, architecture notes, and interview question sets.
+* 📁 **[Sources](./Sources)** — Critical reference PDFs, logic cheat sheets, and interview Q&As.
+* 📁 **[Imps](./Imps)** — Important algorithmic snippets for Dictionaries, Lists, and Sets.
+* 📁 **[Demo](./Demo)** — Rapid experimentation and scratchpad scripts.
 
 ---
 
