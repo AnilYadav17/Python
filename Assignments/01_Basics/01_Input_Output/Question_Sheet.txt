@@ -1,0 +1,88 @@
+1. Hello & Name Printer
+Write a program to print:
+Hello
+Your Name
+
+2. Menu Display
+Write a program to display:
+=== Welcome to Coffee Shop ===
+1. Espresso     $3
+2. Latte        $4
+3. Cappuccino   $5
+==============================
+
+3. Resume Format
+Write a program to display:
+=== Resume ===
+Name       : Alice Johnson
+Email      : alice@example.com
+Skills     :
+  - Java
+  - HTML & CSS
+  - Problem Solving
+Experience : 2 years at XYZ Ltd.
+
+4. Star Pattern(without loop)
+Write a program to print:
+*****
+*****
+*****
+
+5. Special Characters
+Write a program to print:
+@ # $ % ^ & *
+
+6. Print User Details
+Take input:
+- Name
+- Age
+- City
+Display them properly.
+
+7. Full Name Display
+Take first name and last name as input and display:
+Full Name: John Doe
+
+8. Simple Input Display
+Take two numbers as input and print them on separate lines.
+
+9. Three Inputs Display
+Take three values from user and print each on new line.
+
+10. Input and Echo
+Take input from user and print:
+You entered: <input>
+
+11. Greeting Message
+Take name as input and print:
+Hello <name>
+Welcome to Python
+
+12. Favorite Things
+Take input:
+- Favorite food
+- Favorite color
+Display:
+I like <food> and my favorite color is <color>
+
+13. College Details
+Take input:
+- College Name
+- Course
+- Year
+Display in proper format.
+
+14. Email Display
+Take email as input and print:
+Your email is: <email>
+
+15. Bio Data
+Take input:
+- Name
+- Age
+- Phone
+Display:
+--- Bio Data ---
+Name  :
+Age   :
+Phone :

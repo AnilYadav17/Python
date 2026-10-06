@@ -1,0 +1,213 @@
+Assignment 1: Speed Calculator
+
+Write a Python program that:
+
+Accepts distance (in km) and time (in hours).
+Calculates speed.
+
+Input:
+Distance = 120
+Time = 2
+
+Output:
+Speed = 60 km/h
+----------------------------------------
+Assignment 2: Salary Calculator
+
+Write a Python program that:
+
+Accepts daily wage and number of days.
+Calculates total salary.
+
+Input:
+Daily wage = 500
+Days = 26
+
+Output:
+Salary = 13000
+----------------------------------------------
+Assignment 3: Electricity Bill Calculator
+
+Write a Python program that:
+
+Accepts number of units.
+Calculates bill (₹6 per unit).
+
+Input:
+Units = 100
+
+Output:
+Bill = 600
+------------------------------------------
+Assignment 4: Area of Rectangle
+
+Write a Python program that:
+
+Accepts length and breadth.
+Calculates area.
+
+Input:
+Length = 10
+Breadth = 5
+
+Output:
+Area = 50
+------------------------------------------------
+Assignment 5: Average Marks Calculator
+
+Write a Python program that:
+
+Accepts marks of 3 subjects.
+Calculates average.
+
+Input:
+Marks = 80, 90, 70
+
+Output:
+Average = 80.0
+------------------------------------------------------------
+Assignment 6: Discount Calculator
+
+Write a Python program that:
+
+Accepts total amount.
+Calculates 10% discount and final price.
+
+Input:
+Amount = 1000
+
+Output:
+Discount = 100
+Final = 900
+----------------------------------------------------------------
+Assignment 7: Circle Area Calculator
+
+Write a Python program that:
+
+Accepts radius.
+Calculates area of circle.
+
+Input:
+Radius = 7
+
+Output:
+Area = 153.86
+------------------------------------------------------------------------
+Assignment 8: Data Storage Converter
+
+Write a Python program that:
+
+Accepts value in MB.
+Converts into GB.
+
+Input:
+MB = 2048
+
+Output:
+GB = 2.0
+----------------------------------------------------------------------
+Assignment 9: Fuel Cost Calculator
+
+Write a Python program that:
+
+Accepts distance (km), mileage (km/litre), and petrol price.
+Calculates total fuel cost.
+
+Input:
+Distance = 100
+Mileage = 20
+Petrol Price = 100
+
+Output:
+Cost = 500
+
+Assignment 10: Percentage Calculator
+
+Write a Python program that:
+
+Accepts total marks and obtained marks.
+Calculates percentage.
+
+Input:
+Total = 500
+Obtained = 400
+
+Output:
+Percentage = 80%
+
+Assignment 11: Time Duration Adder
+
+Write a Python program that:
+
+Accepts hours, minutes, seconds.
+Converts into total seconds.
+
+Input:
+Hours = 1
+Minutes = 2
+Seconds = 30
+
+Output:
+Total Seconds = 3750
+
+Assignment 12: Change Return System
+
+Write a Python program that:
+
+Accepts amount.
+Calculates ₹100, ₹50, ₹10 notes.
+
+Input:
+Amount = 380
+
+Output:
+₹100 x 3
+₹50 x 1
+₹10 x 3
+
+Assignment 13: Compound Interest Calculator
+
+Write a Python program that:
+
+Accepts principal, rate, and time.
+Calculates compound interest.
+
+Input:
+Principal = 1000
+Rate = 10
+Time = 2
+
+Output:
+Amount = 1210.0
+Compound Interest = 210.0
+
+Assignment 14: Simple Profit or Loss Calculator
+
+Write a Python program that:
+
+Accepts cost price and selling price.
+Calculates profit/loss and percentage.
+
+Input:
+Cost Price = 1000
+Selling Price = 1200
+
+Output:
+Profit = 200
+Profit % = 20.0
+
+Assignment 15: Average Speed for Multiple Trips
+
+Write a Python program that:
+
+Accepts distance1, time1, distance2, time2.
+Calculates average speed.
+
+Input:
+Distance1 = 60
+Time1 = 1
+Distance2 = 40
+Time2 = 1
+
+Output:
+Average Speed = 50 km/h
