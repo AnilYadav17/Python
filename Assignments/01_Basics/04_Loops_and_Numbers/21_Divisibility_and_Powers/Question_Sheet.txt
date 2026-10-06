@@ -1,0 +1,52 @@
+1)	WAP to find out the sum of all integer between 100 and 200 which are divisible by 9
+2)	WAP to print Square, Cube and Square Root of all numbers from 1 to N
+3)	WAP to find out all the leap years between two entered years
+4)
+1
+00
+111
+0000
+11111
+
+5)
+A
+AB
+ABC
+ABCD
+ABCDE
+
+6)
+a
+ab
+abc
+abcd
+abcde
+7.
+enter n6
+     *
+    **
+   ***
+  ****
+ *****
+******
+8.
+enter n6
+ 654321
+  65432
+   6543
+    654
+     65
+9.
+    1
+   10
+  101
+ 1010
+10101
+
+10.
+enter number6
+0
+0 1
+0 1 2
+0 1 2 3
+0 1 2 3 4

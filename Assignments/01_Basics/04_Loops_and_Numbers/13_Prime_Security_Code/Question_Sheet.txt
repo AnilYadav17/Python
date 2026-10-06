@@ -1,0 +1,185 @@
+1. Prime Security Code Checker
+
+A high-security research lab uses numeric passcodes to unlock restricted doors. To improve security,
+ only prime numbers are accepted because they have exactly two factors and are harder to predict using common patterns.
+
+When an employee enters a code, the system must verify whether the number is prime. If yes, access is granted; otherwise, access is denied.
+
+Write a program to check whether the entered number is Prime or Not Prime.
+
+Input:
+29
+
+Output:
+Prime Number
+
+
+2. Next Prime ID Generator
+
+A multinational company auto-generates employee IDs in numeric sequence.
+ Due to internal policy, only prime numbered IDs are assigned to new premium employees.
+
+The HR manager enters the current last issued ID, and the software must search forward to find the next available prime number ID.
+
+Write a program to find the first prime number after n.
+
+Input:
+14
+
+Output:
+Next Prime = 17
+
+
+3. Composite Number Detector
+
+A product testing company labels batch numbers as risky if they have more than two factors. Such numbers are known as composite numbers and indicate repeated grouping patterns.
+
+The quality control officer enters a batch number, and the software checks whether it is Composite or Not.
+
+Write a program to check whether a number is Composite or Not.
+
+Input:
+12
+
+Output:
+Composite Number
+
+4. Prime Security Code Checker – Advanced
+
+A high-security lab accepts only prime numbered access codes.
+
+When a user enters a number, the software must:
+
+- Check whether number is prime
+- If prime, print next immediate prime number
+- If not prime, print previous immediate prime number
+
+Write a program using loops only.
+
+Input:
+29
+
+Output:
+Prime Number
+Next Prime = 31
+
+
+5. Next Prime ID Generator – Smart Version
+
+A company gives prime numbered employee IDs to premium staff.
+
+Manager enters current ID.
+System must:
+
+- Find next prime number after current ID
+- Find difference between current ID and next prime
+
+Write a program using loops.
+
+Input:
+20
+
+Output:
+Next Prime ID = 23
+Gap = 3
+
+
+6. Composite Number Detector – Risk Version
+
+A product company marks composite numbers as risky.
+
+User enters a number.
+System must:
+
+- Check Composite or Not
+- Count total factors
+- Print smallest factor other than 1
+
+Input:
+12
+
+Output:
+Composite Number
+Factors Count = 6
+Smallest Factor = 2
+
+
+7.
+ Prime Sum Lucky Number
+
+A lottery app checks if sum of digits is prime.
+
+Write a program to:
+
+- Find sum of digits
+- If prime print Lucky Number
+- Else Normal Number
+
+Input:
+4528
+
+Output:
+Sum = 19
+Lucky Number
+
+8. Largest Smallest Sum Prime Checker
+
+A number analyzer finds largest and smallest digit.
+
+Write a program to:
+
+- Find largest digit
+- Find smallest digit
+- Find sum of both
+- Check whether sum is Prime or Not
+
+Input:
+57294
+
+Output:
+Largest = 9
+Smallest = 2
+Sum = 11
+Prime
+
+9.Even Odd Difference Prime System
+
+A smart scanner counts even and odd digits.
+
+Write a program to:
+
+- Count even digits
+- Count odd digits
+- Find difference
+- Check whether difference is Prime or Not
+
+Input:
+123456
+
+Output:
+Even Count = 3
+Odd Count = 3
+Difference = 0
+Not Prime
+
+10.Zero Count Prime Scanner
+
+A banking system checks account numbers.
+
+Write a program to:
+
+- Count zero digits
+- Find sum of digits
+- Add zero count and sum
+- Multiply by smallest digit
+- Check whether final result is Prime or Not
+
+Input:
+908406
+
+Output:
+Zero Count = 2
+Sum = 27
+Smallest Digit = 0
+Final Result = 0
+Not Prime
