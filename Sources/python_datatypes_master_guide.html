@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python &amp; Data Types: Comprehensive Architecture &amp; Mastery Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    font-size: 9pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover Page */
+  .cover-page {
+    page-break-after: always;
+    height: 100%;
+    min-height: 255mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30mm 15mm 20mm 15mm;
+    background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 9.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .cover-title {
+    font-size: 32pt;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin: 0 0 16px 0;
+    background: linear-gradient(120deg, #ffffff 30%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cover-subtitle {
+    font-size: 13pt;
+    font-weight: 400;
+    color: #cbd5e1;
+    line-height: 1.45;
+    margin-bottom: 35px;
+    max-width: 95%;
+  }
+
+  .cover-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 25px 0;
+  }
+
+  .cover-feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .cover-feature-title {
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 10.5pt;
+    margin-bottom: 4px;
+  }
+
+  .cover-feature-desc {
+    color: #94a3b8;
+    font-size: 8.5pt;
+    line-height: 1.35;
+  }
+
+  .cover-meta {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-meta-left {
+    font-size: 9pt;
+    color: #cbd5e1;
+  }
+
+  .cover-meta-left strong {
+    color: #ffffff;
+    font-size: 11pt;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .cover-meta-right {
+    text-align: right;
+    font-size: 8.5pt;
+    color: #94a3b8;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 5px;
+    margin-top: 22px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  h2 {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1e293b;
+    border-left: 3.5px solid #0284c7;
+    padding-left: 8px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #334155;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 6px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin: 0 0 8px 0;
+    padding-left: 18px;
+  }
+
+  li {
+    margin-bottom: 3px;
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  .badge-immutable { background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; }
+  .badge-mutable   { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .badge-ordered   { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+  .badge-unordered { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .badge-hashable  { background: #fce7f3; color: #9d174d; border: 1px solid #fbcfe8; }
+
+  /* Callouts */
+  .callout {
+    background: #f8fafc;
+    border-left: 3.5px solid #0284c7;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    font-size: 8.5pt;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: #0284c7;
+    font-size: 9pt;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .callout.warning { background: #fffbeb; border-left-color: #f59e0b; }
+  .callout.warning .callout-title { color: #b45309; }
+  .callout.memory { background: #f5f3ff; border-left-color: #8b5cf6; }
+  .callout.memory .callout-title { color: #6d28d9; }
+  .callout.interview { background: #ecfdf5; border-left-color: #10b981; }
+  .callout.interview .callout-title { color: #047857; }
+
+  /* Code Blocks */
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    font-family: 'Fira Code', Consolas, 'SF Mono', monospace;
+    font-size: 8pt;
+    padding: 8px 12px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 6px 0 10px 0;
+    page-break-inside: avoid;
+    border: 1px solid #1e293b;
+    line-height: 1.45;
+  }
+
+  code {
+    font-family: 'Fira Code', Consolas, 'SF Mono', monospace;
+    font-size: 8pt;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 4px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  .code-keyword { color: #f43f5e; font-weight: 600; }
+  .code-builtin { color: #38bdf8; font-weight: 600; }
+  .code-string  { color: #4ade80; }
+  .code-number  { color: #fbbf24; }
+  .code-comment { color: #64748b; font-style: italic; }
+  .code-func    { color: #c084fc; font-weight: 600; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 14px 0;
+    font-size: 8pt;
+    page-break-inside: avoid;
+  }
+
+  th {
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    border: 1px solid #334155;
+  }
+
+  td {
+    padding: 5px 8px;
+    border: 1px solid #cbd5e1;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  /* Diagrams */
+  .diagram-container {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 0;
+    page-break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .diagram-title {
+    font-weight: 700;
+    color: #334155;
+    font-size: 8.5pt;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .flow-box {
+    background: #ffffff;
+    border: 1.5px solid #0284c7;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-weight: 600;
+    font-size: 7.5pt;
+    color: #0f172a;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  .flow-box.highlight {
+    background: #0284c7;
+    color: #ffffff;
+  }
+
+  .flow-arrow {
+    color: #64748b;
+    font-weight: bold;
+    font-size: 10pt;
+  }
+
+  /* Two Column Layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 8px 0;
+    page-break-inside: avoid;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 9px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    page-break-inside: avoid;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 9pt;
+    color: #0f172a;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Questions Box */
+  .q-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    page-break-inside: avoid;
+  }
+
+  .q-title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+  }
+
+  .q-ans {
+    color: #334155;
+    font-size: 8pt;
+    line-height: 1.45;
+  }
+
+  /* Table of Contents */
+  .toc-container {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    page-break-after: always;
+  }
+  .toc-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 4px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+  }
+  .toc-item {
+    font-size: 8pt;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #cbd5e1;
+    padding-bottom: 2px;
+  }
+  .toc-item span:first-child {
+    font-weight: 600;
+    color: #1e293b;
+  }
+  .toc-item span:last-child {
+    color: #0284c7;
+    font-weight: 700;
+  }
+
+  /* Running Header & Footer emulation */
+  .header-rule {
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: #94a3b8;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+  }
+
+  .footer-rule {
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 4px;
+    margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER PAGE ================= -->
+<div class="cover-page">
+  <div>
+    <div class="cover-badge">Core Curriculum &amp; Architecture Reference</div>
+    <h1 class="cover-title">Python &amp; Data Types<br>Master Study Guide</h1>
+    <div class="cover-subtitle">
+      A comprehensive deep dive into Python architecture, memory models, object references, type hierarchies, primitive &amp; collection data structures, operations, and classroom mastery concepts.
+    </div>
+
+    <div class="cover-features">
+      <div class="cover-feature-card">
+        <div class="cover-feature-title">⚙️ Python Execution Internals</div>
+        <div class="cover-feature-desc">Source to Bytecode pipeline, Lexical tokens, AST, Code Objects, .pyc caching, and the Python Virtual Machine (PVM).</div>
+      </div>
+      <div class="cover-feature-card">
+        <div class="cover-feature-title">🧠 CPython Memory &amp; Reference Model</div>
+        <div class="cover-feature-desc">PyObject layout, reference counters, small integer caching, string interning, id() vs ==, and shallow vs deep copy.</div>
+      </div>
+      <div class="cover-feature-card">
+        <div class="cover-feature-title">📊 Complete Data Type Taxonomy</div>
+        <div class="cover-feature-desc">Numeric types (int, float, complex, bool), Sequences (str, list, tuple, range), Sets, Dictionaries, and NoneType.</div>
+      </div>
+      <div class="cover-feature-card">
+        <div class="cover-feature-title">🎯 Classroom 71 Questions &amp; Traps</div>
+        <div class="cover-feature-desc">Answers to core conceptual questions, operator precedence, type casting edge cases, and algorithmic patterns.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-left">
+      <strong>Anil Yadav</strong>
+      B.Tech Computer Science &amp; Engineering<br>
+      Repository: <code>AnilYadav17/Python</code>
+    </div>
+    <div class="cover-meta-right">
+      Module: 01_Basics &amp; Mastery Series<br>
+      Updated: October 2026<br>
+      Format: Official Reference Guide
+    </div>
+  </div>
+</div>
+
+<!-- ================= TABLE OF CONTENTS (PAGE 2) ================= -->
+<div class="toc-container">
+  <div class="toc-title">📖 Comprehensive Table of Contents</div>
+  <div class="toc-grid">
+    <div class="toc-item"><span>1. Introduction to Python &amp; Features</span> <span>Module 1</span></div>
+    <div class="toc-item"><span>2. Compilation &amp; Execution Pipeline (PVM)</span> <span>Module 1</span></div>
+    <div class="toc-item"><span>3. Variables &amp; Object References</span> <span>Module 2</span></div>
+    <div class="toc-item"><span>4. Memory Management: id(), sys.getsizeof()</span> <span>Module 2</span></div>
+    <div class="toc-item"><span>5. Interning: Small Integers &amp; Strings</span> <span>Module 2</span></div>
+    <div class="toc-item"><span>6. Master Classification Matrix of Data Types</span> <span>Module 3</span></div>
+    <div class="toc-item"><span>7. Numeric Types: int, float, complex, bool</span> <span>Module 4</span></div>
+    <div class="toc-item"><span>8. The NoneType Singleton</span> <span>Module 4</span></div>
+    <div class="toc-item"><span>9. Sequence Type: Strings (str)</span> <span>Module 5</span></div>
+    <div class="toc-item"><span>10. Sequence Type: Lists (list)</span> <span>Module 6</span></div>
+    <div class="toc-item"><span>11. Sequence Type: Tuples &amp; NamedTuples</span> <span>Module 7</span></div>
+    <div class="toc-item"><span>12. Sequence Type: range Objects</span> <span>Module 7</span></div>
+    <div class="toc-item"><span>13. Set Types: set &amp; frozenset</span> <span>Module 8</span></div>
+    <div class="toc-item"><span>14. Mapping Type: Dictionaries (dict)</span> <span>Module 9</span></div>
+    <div class="toc-item"><span>15. Type Casting: Implicit vs Explicit</span> <span>Module 10</span></div>
+    <div class="toc-item"><span>16. Operators &amp; Evaluation Semantics</span> <span>Module 11</span></div>
+    <div class="toc-item"><span>17. Classroom 71 Questions &amp; Answers</span> <span>Module 12</span></div>
+    <div class="toc-item"><span>18. Key Assignment Patterns &amp; Cheat Sheet</span> <span>Module 13</span></div>
+  </div>
+
+  <div style="margin-top: 15px; font-size: 8pt; color: #475569; background: #e2e8f0; padding: 8px 12px; border-radius: 5px;">
+    <strong>Curriculum Scope:</strong> This guide synthesizes classroom lectures (<code>01_Basics/Class_Work</code>), comprehensive topic assignments (<code>Assignments/01_Basics/</code>), core architectural mastery guides (<code>MASTER/01_Basics</code>, <code>MASTER/09_Python_Memory_Management</code>), the 30-day revision track, and the 71 core assessment questions.
+  </div>
+</div>
+
+<!-- ================= MODULE 1 ================= -->
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 1: Language Architecture</span></div>
+
+<h1>1. Introduction to Python &amp; Language Architecture</h1>
+
+<p>
+  <strong>Python</strong> is a high-level, interpreted, dynamically typed, multi-paradigm programming language created by <strong>Guido van Rossum</strong> at CWI (Centrum Wiskunde &amp; Informatica) in the Netherlands and released in <strong>1991</strong>. Named after the BBC comedy series <em>Monty Python's Flying Circus</em>, Python emphasizes code readability, developer ergonomics, and minimal syntactic ceremony.
+</p>
+
+<h2>Core Architectural Features</h2>
+<ul>
+  <li><strong>High-Level Abstraction:</strong> Shields programmers from low-level hardware concerns such as manual memory allocation, register tracking, pointer arithmetic, and stack management.</li>
+  <li><strong>Dynamically Typed:</strong> Types are verified and bound at runtime. A variable is an un-typed identifier pointing to a strongly typed object in memory.</li>
+  <li><strong>Strongly Typed:</strong> Python will never implicitly convert types across incompatible boundaries (e.g., <code>"5" + 2</code> immediately raises a <code>TypeError</code>, unlike JavaScript's loose coercion).</li>
+  <li><strong>Interpreted + Compiled Hybrid:</strong> Source code is compiled to intermediate bytecode instructions before being interpreted by the Python Virtual Machine (PVM).</li>
+  <li><strong>Automatic Memory Management:</strong> Built-in reference counting backed by a 3-generation cyclic garbage collector automates memory allocation and deallocation.</li>
+  <li><strong>Multi-Paradigm:</strong> Fully supports Procedural, Object-Oriented (OOP), and Functional programming paradigms.</li>
+  <li><strong>Platform Independence:</strong> Code compiles to platform-independent bytecode. Any platform running a compatible PVM can execute the bytecode.</li>
+</ul>
+
+<h2>The Execution Pipeline: Source Code to CPU Execution</h2>
+<p>
+  A common misconception is that Python is "purely interpreted." In reality, CPython follows a multi-stage compilation and execution pipeline:
+</p>
+
+<div class="diagram-container">
+  <div class="diagram-title">Python Internal Compilation &amp; Execution Pipeline</div>
+  <div class="flow-row">
+    <div class="flow-box">Source Code<br><code>.py</code> file</div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-box">Lexical Analysis<br><code>Tokenization</code></div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-box">Syntax Analysis<br><code>Parse Tree</code></div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-box">Abstract Syntax Tree<br><code>AST</code></div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-box highlight">Bytecode Compiler<br><code>.pyc / Code Object</code></div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-box highlight">Python VM (PVM)<br><code>Evaluation Loop</code></div>
+    <div class="flow-arrow">➔</div>
+    <div class="flow-box">Machine Code<br><code>CPU Instructions</code></div>
+  </div>
+</div>
+
+<ol>
+  <li><strong>Lexical Analysis (Tokenization):</strong> The source code string is scanned character-by-character and broken down into basic syntactic units called <em>tokens</em> (keywords, identifiers, literals, operators, delimiters).</li>
+  <li><strong>Syntax Analysis (Parsing):</strong> The parser verifies tokens against Python grammar rules, constructing a concrete <em>Parse Tree</em> (CST).</li>
+  <li><strong>Abstract Syntax Tree (AST):</strong> The concrete syntax tree is transformed into a streamlined, high-level abstract syntax tree representing semantic logic.</li>
+  <li><strong>Bytecode Compilation:</strong> The compiler converts AST nodes into platform-independent intermediate virtual machine instructions (bytecode). Bytecode instructions are packaged into <strong>Code Objects</strong> (containing <code>co_code</code>, <code>co_consts</code>, <code>co_varnames</code>) and cached on disk as <code>.pyc</code> files inside the <code>__pycache__</code> directory.</li>
+  <li><strong>PVM (Python Virtual Machine) Execution:</strong> The PVM is a stack-based runtime engine that executes bytecode instructions sequentially by mapping them to host machine C-level instructions.</li>
+</ol>
+
+<div class="callout memory">
+  <div class="callout-title">💡 Why .pyc Files and __pycache__ Exist</div>
+  When an imported module is compiled, CPython saves the compiled bytecode to <code>__pycache__/filename.cpython-XYZ.pyc</code>. On subsequent runs, CPython compares the timestamp of the source <code>.py</code> file with the <code>.pyc</code> file. If the source hasn't changed, Python skips tokenization, parsing, and compilation entirely, jumping straight to bytecode execution!
+</div>
+
+<!-- ================= MODULE 2 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 2: Variables &amp; Memory Management</span></div>
+
+<h1>2. Variables, Identifiers &amp; CPython Object References</h1>
+
+<h2>Variables are Labels, NOT Storage Boxes</h2>
+<p>
+  In languages like C or C++, a variable represents a fixed memory location whose bytes directly store a value. In Python, <strong>variables are symbolic names (pointers or references)</strong> bound to objects that reside in heap memory.
+</p>
+
+<div class="diagram-container">
+  <div class="diagram-title">Memory Reference Model: b = a</div>
+  <div class="flow-row">
+    <div class="flow-box">Variable Name: <code>a</code></div>
+    <div class="flow-arrow" style="transform: rotate(30deg);">↘</div>
+    <div class="flow-box highlight" style="min-width: 180px;">
+      Heap Object: <code>PyLongObject</code><br>
+      Value: <code>100</code> | Address: <code>0x7f9a...</code><br>
+      <code>ob_refcnt = 2</code> | <code>ob_type = int</code>
+    </div>
+    <div class="flow-arrow" style="transform: rotate(-30deg);">↗</div>
+    <div class="flow-box">Variable Name: <code>b</code></div>
+  </div>
+</div>
+
+<h2>The Internal Anatomy of a CPython Object: <code>PyObject</code></h2>
+<p>
+  Every single entity in Python—whether an integer, float, string, function, or class—is an instance of the C struct <code>PyObject</code> (or <code>PyVarObject</code> for variable-length containers):
+</p>
+<ul>
+  <li><code>ob_refcnt</code> (Reference Count): An integer recording how many active references currently point to this object. When this hits zero, the object is immediately deallocated.</li>
+  <li><code>ob_type</code> (Type Descriptor Pointer): A pointer to the object's <code>PyTypeObject</code>, defining its type name, memory allocation size, and methods/dunders.</li>
+  <li><code>Payload / Data Buffer</code>: The actual value representation (e.g. <code>ob_digit[]</code> array for integers, <code>char[]</code> for strings).</li>
+</ul>
+
+<h2>Identifier Rules &amp; Naming Conventions</h2>
+<ul>
+  <li>Must begin with an uppercase letter, lowercase letter, or underscore (<code>_</code>). Cannot start with a digit.</li>
+  <li>Subsequent characters may consist of letters, digits, or underscores (<code>[a-zA-Z0-9_]</code>).</li>
+  <li>Case-sensitive: <code>Total</code>, <code>total</code>, and <code>TOTAL</code> are three completely distinct identifiers.</li>
+  <li>Cannot use reserved Python keywords (e.g., <code>for</code>, <code>while</code>, <code>if</code>, <code>def</code>, <code>class</code>, <code>is</code>, <code>in</code>, <code>None</code>).</li>
+  <li><strong>PEP 8 Conventions:</strong> <code>snake_case</code> for functions and variables, <code>PascalCase</code> for classes, <code>SCREAMING_SNAKE_CASE</code> for constants.</li>
+</ul>
+
+<h2>Memory Inspection: <code>id()</code> and <code>sys.getsizeof()</code></h2>
+<p>
+  As covered in classroom experiments (<code>Day4/size_and_id.py</code>), Python provides built-in tools to inspect memory addresses and allocation sizes:
+</p>
+
+<pre><code><span class="code-keyword">import</span> sys
+
+a = <span class="code-number">10</span>
+b = <span class="code-number">10.5</span>
+c = <span class="code-builtin">True</span>
+d = <span class="code-string">"Anil"</span>
+e = <span class="code-builtin">None</span>
+
+<span class="code-comment"># Memory footprint in bytes on 64-bit CPython</span>
+<span class="code-builtin">print</span>(sys.getsizeof(a))  <span class="code-comment"># 28 bytes (PyLongObject overhead + digits)</span>
+<span class="code-builtin">print</span>(sys.getsizeof(b))  <span class="code-comment"># 24 bytes (PyFloatObject)</span>
+<span class="code-builtin">print</span>(sys.getsizeof(c))  <span class="code-comment"># 28 bytes (bool inherits from int)</span>
+<span class="code-builtin">print</span>(sys.getsizeof(d))  <span class="code-comment"># 53 bytes (PyUnicodeObject + Latin-1 characters)</span>
+<span class="code-builtin">print</span>(sys.getsizeof(e))  <span class="code-comment"># 16 bytes (NoneType singleton)</span>
+
+<span class="code-comment"># Identity inspection (Virtual memory address of PyObject)</span>
+<span class="code-builtin">print</span>(<span class="code-builtin">id</span>(a))            <span class="code-comment"># Memory address integer</span>
+</code></pre>
+
+<h2>CPython Caching &amp; Optimization: Interning</h2>
+
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">🔢 Small Integer Caching [-5 to 256]</div>
+    <p style="font-size: 8pt;">
+      CPython pre-allocates and caches an array of integer objects for values between <code>-5</code> and <code>256</code> during interpreter startup. Any variable assigned a value in this range points to the identical cached singleton object in memory:
+    </p>
+    <pre style="margin: 4px 0; font-size: 7.5pt;"><code>x = <span class="code-number">256</span>; y = <span class="code-number">256</span>
+<span class="code-builtin">print</span>(x <span class="code-keyword">is</span> y)  <span class="code-comment"># True (same id)</span>
+
+p = <span class="code-number">257</span>; q = <span class="code-number">257</span>
+<span class="code-builtin">print</span>(p <span class="code-keyword">is</span> q)  <span class="code-comment"># False (different ids)</span></code></pre>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔤 String Interning</div>
+    <p style="font-size: 8pt;">
+      Strings that look like valid identifiers (alphanumeric + underscores) and compile-time string constants are automatically <em>interned</em> by CPython into a global dictionary. This allows comparison via fast pointer equality ($O(1)$) instead of char-by-char ($O(n)$):
+    </p>
+    <pre style="margin: 4px 0; font-size: 7.5pt;"><code>s1 = <span class="code-string">"hello_world"</span>
+s2 = <span class="code-string">"hello_world"</span>
+<span class="code-builtin">print</span>(s1 <span class="code-keyword">is</span> s2)  <span class="code-comment"># True</span>
+
+<span class="code-comment"># Force manual interning</span>
+s3 = sys.intern(<span class="code-string">"hello world!"</span>)</code></pre>
+  </div>
+</div>
+
+<div class="callout warning">
+  <div class="callout-title">⚠️ The Golden Rule: `is` vs `==`</div>
+  <ul>
+    <li><code>==</code> tests for <strong>Value Equality</strong> by calling <code>__eq__()</code>. It checks if two objects represent the same data.</li>
+    <li><code>is</code> tests for <strong>Object Identity</strong>. It checks if <code>id(a) == id(b)</code> (exact same memory pointer).</li>
+    <li><strong>Never</strong> use <code>is</code> to compare numbers or user strings! Always use <code>==</code>. Reserve <code>is</code> exclusively for singletons like <code>None</code>, <code>True</code>, and <code>False</code> (e.g. <code>if x is None:</code>).</li>
+  </ul>
+</div>
+
+<!-- ================= MODULE 3 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 3: Data Types Matrix</span></div>
+
+<h1>3. Master Classification Matrix of Python Data Types</h1>
+
+<p>
+  Every value in Python has an associated data type that dictates what operations can be performed, how memory is allocated, and whether the object's contents can be modified in-place.
+</p>
+
+<h2>Complete Data Type Taxonomy Table</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data Type</th>
+      <th>Category</th>
+      <th>Mutability</th>
+      <th>Ordering</th>
+      <th>Duplicates</th>
+      <th>Hashable</th>
+      <th>Syntax Literal Example</th>
+      <th>Primary Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><code>int</code></strong></td>
+      <td>Numeric</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>42</code>, <code>0b101</code>, <code>0xFF</code></td>
+      <td>Exact discrete integer arithmetic</td>
+    </tr>
+    <tr>
+      <td><strong><code>float</code></strong></td>
+      <td>Numeric</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>3.14159</code>, <code>2.5e-3</code></td>
+      <td>Real numbers, scientific calculation</td>
+    </tr>
+    <tr>
+      <td><strong><code>complex</code></strong></td>
+      <td>Numeric</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>3 + 4j</code></td>
+      <td>Electrical engineering, Fourier transforms</td>
+    </tr>
+    <tr>
+      <td><strong><code>bool</code></strong></td>
+      <td>Numeric (int subclass)</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>True</code>, <code>False</code></td>
+      <td>Boolean flags, conditional branching</td>
+    </tr>
+    <tr>
+      <td><strong><code>NoneType</code></strong></td>
+      <td>Singleton</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>None</code></td>
+      <td>Absence of value, default return/argument</td>
+    </tr>
+    <tr>
+      <td><strong><code>str</code></strong></td>
+      <td>Sequence</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td><span class="badge badge-ordered">Ordered</span></td>
+      <td>Allowed</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>"Anil"</code>, <code>'Python'</code></td>
+      <td>Text processing, Unicode manipulation</td>
+    </tr>
+    <tr>
+      <td><strong><code>list</code></strong></td>
+      <td>Sequence</td>
+      <td><span class="badge badge-mutable">Mutable</span></td>
+      <td><span class="badge badge-ordered">Ordered</span></td>
+      <td>Allowed</td>
+      <td>No</td>
+      <td><code>[1, 2, "three", 4.0]</code></td>
+      <td>Dynamic array, general-purpose collections</td>
+    </tr>
+    <tr>
+      <td><strong><code>tuple</code></strong></td>
+      <td>Sequence</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td><span class="badge badge-ordered">Ordered</span></td>
+      <td>Allowed</td>
+      <td><span class="badge badge-hashable">Hashable*</span></td>
+      <td><code>(10, 20)</code>, <code>(42,)</code></td>
+      <td>Fixed records, dictionary keys, multi-returns</td>
+    </tr>
+    <tr>
+      <td><strong><code>range</code></strong></td>
+      <td>Sequence</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td><span class="badge badge-ordered">Ordered</span></td>
+      <td>No (arithmetic)</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>range(0, 10, 2)</code></td>
+      <td>Memory-efficient integer loop counters</td>
+    </tr>
+    <tr>
+      <td><strong><code>set</code></strong></td>
+      <td>Set Collection</td>
+      <td><span class="badge badge-mutable">Mutable</span></td>
+      <td><span class="badge badge-unordered">Unordered</span></td>
+      <td>Unique only</td>
+      <td>No</td>
+      <td><code>{1, 2, 3, 4}</code></td>
+      <td>Deduplication, Venn logic, $O(1)$ membership</td>
+    </tr>
+    <tr>
+      <td><strong><code>frozenset</code></strong></td>
+      <td>Set Collection</td>
+      <td><span class="badge badge-immutable">Immutable</span></td>
+      <td><span class="badge badge-unordered">Unordered</span></td>
+      <td>Unique only</td>
+      <td><span class="badge badge-hashable">Hashable</span></td>
+      <td><code>frozenset([1, 2, 3])</code></td>
+      <td>Immutable sets, set elements, dict keys</td>
+    </tr>
+    <tr>
+      <td><strong><code>dict</code></strong></td>
+      <td>Mapping</td>
+      <td><span class="badge badge-mutable">Mutable</span></td>
+      <td><span class="badge badge-ordered">Ordered (3.7+)</span></td>
+      <td>Unique keys</td>
+      <td>No</td>
+      <td><code>{"id": 1, "name": "A"}</code></td>
+      <td>Key-value associative lookup ($O(1)$)</td>
+    </tr>
+  </tbody>
+</table>
+<div style="font-size: 7.5pt; color: #64748b; margin-top: -6px;">
+  * Note on Tuple Hashability: A tuple is hashable if and only if all of its contained elements are also hashable. A tuple containing a list (e.g. <code>([1, 2], 3)</code>) is NOT hashable.
+</div>
+
+<h2>Mutability vs Immutability: Deep Technical Meaning</h2>
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">🔒 Immutable Objects</div>
+    <p style="font-size: 8pt;">
+      Once allocated in heap memory, the internal data bytes of an immutable object cannot be altered. Any operation that appears to modify an immutable object actually creates and returns a <strong>brand new object</strong> with a new memory address (<code>id</code>):
+    </p>
+    <pre style="margin: 4px 0; font-size: 7.5pt;"><code>s = <span class="code-string">"Anil"</span>
+<span class="code-builtin">print</span>(<span class="code-builtin">id</span>(s))     <span class="code-comment"># e.g., 140239120</span>
+s += <span class="code-string">" Yadav"</span>
+<span class="code-builtin">print</span>(<span class="code-builtin">id</span>(s))     <span class="code-comment"># NEW address! Old object discarded</span></code></pre>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔓 Mutable Objects</div>
+    <p style="font-size: 8pt;">
+      The internal state and contents of a mutable object can be modified in-place without altering the object's identity or memory address. Any other variable referencing the same object will observe the change immediately:
+    </p>
+    <pre style="margin: 4px 0; font-size: 7.5pt;"><code>lst = [<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>]
+<span class="code-builtin">print</span>(<span class="code-builtin">id</span>(lst))   <span class="code-comment"># e.g., 140238992</span>
+lst.append(<span class="code-number">4</span>)
+<span class="code-builtin">print</span>(<span class="code-builtin">id</span>(lst))   <span class="code-comment"># SAME address! Mutated in-place</span></code></pre>
+  </div>
+</div>
+
+<!-- ================= MODULE 4 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 4: Primitive &amp; Scalar Types</span></div>
+
+<h1>4. Primitive &amp; Scalar Data Types in Detail</h1>
+
+<h2>1. Integer (<code>int</code>)</h2>
+<ul>
+  <li><strong>Arbitrary Precision:</strong> In Python 3, integers have unbounded precision, constrained only by host RAM. Unlike C/Java where integers overflow at 32-bit ($2^{31}-1$) or 64-bit ($2^{63}-1$), Python handles calculations of arbitrary magnitude (e.g., $2^{1000}$) seamlessly without overflow bugs.</li>
+  <li><strong>Internal Representation:</strong> Implemented in CPython as <code>PyLongObject</code>, using a variable-length array of 30-bit digits (<code>ob_digit[]</code>). CPython allocates additional digit slots dynamically as the number expands.</li>
+  <li><strong>Radix Literals &amp; Conversions:</strong>
+    <ul>
+      <li>Binary: Prefix <code>0b</code> or <code>0B</code> (e.g., <code>0b1010</code> = 10). Conversion: <code>bin(10)</code>.</li>
+      <li>Octal: Prefix <code>0o</code> or <code>0O</code> (e.g., <code>0o12</code> = 10). Conversion: <code>oct(10)</code>.</li>
+      <li>Hexadecimal: Prefix <code>0x</code> or <code>0X</code> (e.g., <code>0xA</code> = 10). Conversion: <code>hex(10)</code>.</li>
+    </ul>
+  </li>
+  <li><strong>Visual Separators:</strong> Underscores can be embedded for numeric readability: <code>population = 1_400_000_000</code>.</li>
+</ul>
+
+<h2>2. Floating-Point (<code>float</code>)</h2>
+<ul>
+  <li><strong>Standard Representation:</strong> Conforms strictly to IEEE 754 64-bit double precision (1 sign bit, 11 exponent bits, 53 mantissa bits). Offers roughly 15 to 17 significant decimal digits of precision.</li>
+  <li><strong>The Floating-Point Conundrum:</strong>
+    <pre><code><span class="code-builtin">print</span>(<span class="code-number">0.1</span> + <span class="code-number">0.2</span> == <span class="code-number">0.3</span>)       <span class="code-comment"># False!</span>
+<span class="code-builtin">print</span>(<span class="code-number">0.1</span> + <span class="code-number">0.2</span>)              <span class="code-comment"># 0.30000000000000004</span>
+</code></pre>
+    Because fractions with denominators that are powers of 10 cannot always be expressed as finite base-2 binary fractions, floating-point arithmetic incurs slight rounding differences.
+  </li>
+  <li><strong>Solution for Financial / Scientific Equality:</strong>
+    <pre><code><span class="code-keyword">import</span> math
+math.isclose(<span class="code-number">0.1</span> + <span class="code-number">0.2</span>, <span class="code-number">0.3</span>)  <span class="code-comment"># True</span>
+<span class="code-comment"># Or use the decimal module for exact financial arithmetic</span>
+<span class="code-keyword">from</span> decimal <span class="code-keyword">import</span> Decimal
+Decimal(<span class="code-string">'0.1'</span>) + Decimal(<span class="code-string">'0.2'</span>) == Decimal(<span class="code-string">'0.3'</span>) <span class="code-comment"># True</span>
+</code></pre>
+  </li>
+  <li><strong>Special Float Literals:</strong> <code>float('inf')</code>, <code>float('-inf')</code>, and <code>float('nan')</code> (Not a Number). Note that <code>float('nan') == float('nan')</code> is always <code>False</code>!</li>
+</ul>
+
+<h2>3. Complex Numbers (<code>complex</code>)</h2>
+<p>
+  Python has native built-in support for complex numbers without external libraries. Written with real and imaginary components ending with <code>j</code> or <code>J</code>:
+</p>
+<pre><code>z = <span class="code-number">3</span> + <span class="code-number">4j</span>
+<span class="code-builtin">print</span>(z.real)         <span class="code-comment"># 3.0 (stored as float)</span>
+<span class="code-builtin">print</span>(z.imag)         <span class="code-comment"># 4.0 (stored as float)</span>
+<span class="code-builtin">print</span>(z.conjugate())  <span class="code-comment"># (3 - 4j)</span>
+<span class="code-builtin">print</span>(<span class="code-builtin">abs</span>(z))         <span class="code-comment"># 5.0 (Calculates magnitude: sqrt(3^2 + 4^2))</span>
+</code></pre>
+<div class="callout warning">
+  <div class="callout-title">⚠️ Type Constraint Trap</div>
+  Attempting to convert a complex number to <code>int</code> or <code>float</code> via <code>int(3+4j)</code> raises a <code>TypeError: can't convert complex to int</code>.
+</div>
+
+<h2>4. Boolean (<code>bool</code>) &amp; Truth Value Testing</h2>
+<ul>
+  <li><code>bool</code> is an explicit subclass of <code>int</code> in Python: <code>issubclass(bool, int) == True</code>.</li>
+  <li><code>True</code> corresponds numerically to <code>1</code>, and <code>False</code> corresponds to <code>0</code>.</li>
+  <li>Therefore, boolean arithmetic evaluates as integer math:
+    <pre><code><span class="code-builtin">print</span>(<span class="code-builtin">True</span> + <span class="code-builtin">True</span>)  <span class="code-comment"># 2</span>
+<span class="code-builtin">print</span>(<span class="code-builtin">True</span> * <span class="code-number">5</span>)     <span class="code-comment"># 5</span>
+<span class="code-builtin">print</span>(<span class="code-builtin">False</span> - <span class="code-number">1</span>)    <span class="code-comment"># -1</span>
+</code></pre>
+  </li>
+  <li><strong>Falsy vs Truthy:</strong> In Python, any object can be tested for truth value inside an <code>if</code> or <code>while</code> condition.
+    <table style="margin-top: 6px;">
+      <tr><th>Falsy Values (Evaluate to False)</th><th>Truthy Values (Evaluate to True)</th></tr>
+      <tr>
+        <td>
+          <code>None</code>, <code>False</code><br>
+          Numeric zeros: <code>0</code>, <code>0.0</code>, <code>0j</code><br>
+          Empty sequences: <code>""</code>, <code>[]</code>, <code>()</code>, <code>range(0)</code><br>
+          Empty mappings &amp; sets: <code>{}</code>, <code>set()</code>
+        </td>
+        <td>
+          Any non-zero number: <code>1</code>, <code>-5</code>, <code>0.001</code><br>
+          Any non-empty string: <code>"hello"</code>, <code>" "</code> (space is truthy!), <code>"False"</code><br>
+          Any non-empty collection: <code>[0]</code>, <code>(False,)</code>, <code>{"k": 0}</code>
+        </td>
+      </tr>
+    </table>
+  </li>
+</ul>
+
+<h2>5. The <code>NoneType</code> Singleton</h2>
+<p>
+  <code>None</code> is the sole instance of the <code>NoneType</code> class. It represents the deliberate absence of a value, uninitialized state, or the default return value of functions that finish without an explicit <code>return</code> statement.
+</p>
+<div class="callout interview">
+  <div class="callout-title">🎯 The Mutable Default Argument Trap</div>
+  In Python, default parameter expressions in functions are evaluated <strong>only once</strong> when the function definition is executed, NOT every time the function is called!
+  <pre style="margin: 4px 0 0 0;"><code><span class="code-comment"># BAD PATTERN: Dangerous shared state</span>
+<span class="code-keyword">def</span> <span class="code-func">add_item</span>(item, target=[]):
+    target.append(item)
+    <span class="code-keyword">return</span> target
+
+<span class="code-comment"># IDIOMATIC PATTERN: Using None as sentinel</span>
+<span class="code-keyword">def</span> <span class="code-func">add_item_safe</span>(item, target=<span class="code-builtin">None</span>):
+    <span class="code-keyword">if</span> target <span class="code-keyword">is</span> <span class="code-builtin">None</span>:
+        target = []
+    target.append(item)
+    <span class="code-keyword">return</span> target
+</code></pre>
+</div>
+
+<!-- ================= MODULE 5 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 5: Sequence Types - Strings</span></div>
+
+<h1>5. Sequence Data Types: Strings (<code>str</code>)</h1>
+
+<p>
+  A <strong>string</strong> (<code>str</code>) in Python is an ordered, immutable sequence of Unicode code points. Supported by <strong>PEP 393</strong> (Flexible String Representation), CPython stores strings using 1 byte (Latin-1), 2 bytes (UCS-2), or 4 bytes (UCS-4) per character depending on the largest code point, eliminating ASCII memory waste while supporting emojis and all world languages.
+</p>
+
+<h2>String Indexing &amp; Slicing Mechanics</h2>
+<p>
+  Strings support both positive (0 to $N-1$) and negative ($-1$ down to $-N$) indexing:
+</p>
+<pre><code>s = <span class="code-string">"PYTHON"</span>
+<span class="code-comment"># Indices:   P (0, -6) | Y (1, -5) | T (2, -4) | H (3, -3) | O (4, -2) | N (5, -1)</span>
+
+<span class="code-comment"># Slicing syntax: s[start:stop:step] (stop is EXCLUSIVE)</span>
+<span class="code-builtin">print</span>(s[<span class="code-number">1</span>:<span class="code-number">4</span>])     <span class="code-comment"># 'YTH'</span>
+<span class="code-builtin">print</span>(s[::<span class="code-number">2</span>])      <span class="code-comment"># 'PTO' (every 2nd char)</span>
+<span class="code-builtin">print</span>(s[::-<span class="code-number">1</span>])     <span class="code-comment"># 'NOHTYP' (reversal idiom)</span>
+<span class="code-builtin">print</span>(s[-<span class="code-number">3</span>:])      <span class="code-comment"># 'HON' (last 3 chars)</span>
+</code></pre>
+
+<h2>Essential Built-In String Methods Catalog</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Methods</th>
+      <th>Description &amp; Behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Case Conversion</strong></td>
+      <td><code>.upper()</code>, <code>.lower()</code>, <code>.title()</code>, <code>.capitalize()</code>, <code>.swapcase()</code></td>
+      <td>Transforms character case. Returns a brand new string (original remains unaltered due to immutability).</td>
+    </tr>
+    <tr>
+      <td><strong>Validation</strong></td>
+      <td><code>.isalpha()</code>, <code>.isdigit()</code>, <code>.isalnum()</code>, <code>.isspace()</code>, <code>.startswith(pfx)</code>, <code>.endswith(sfx)</code></td>
+      <td>Returns boolean testing character composition or prefix/suffix matches.</td>
+    </tr>
+    <tr>
+      <td><strong>Search &amp; Count</strong></td>
+      <td><code>.find(sub)</code>, <code>.rfind(sub)</code>, <code>.index(sub)</code>, <code>.count(sub)</code></td>
+      <td><code>.find()</code> returns starting index or <code>-1</code> if missing. <code>.index()</code> raises <code>ValueError</code> if missing.</td>
+    </tr>
+    <tr>
+      <td><strong>Trimming &amp; Cleaning</strong></td>
+      <td><code>.strip()</code>, <code>.lstrip()</code>, <code>.rstrip()</code></td>
+      <td>Removes leading and/or trailing whitespace (or specific characters if argument passed).</td>
+    </tr>
+    <tr>
+      <td><strong>Tokenizing &amp; Joining</strong></td>
+      <td><code>.split(sep)</code>, <code>.rsplit()</code>, <code>.splitlines()</code>, <code>'sep'.join(iter)</code></td>
+      <td><code>split()</code> returns list of substrings. <code>join()</code> concatenates an iterable with separator ($O(n)$ time).</td>
+    </tr>
+    <tr>
+      <td><strong>Substitution</strong></td>
+      <td><code>.replace(old, new[, count])</code></td>
+      <td>Substitutes occurrences of substring. Returns new string.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>String Formatting Mechanisms</h2>
+<div class="two-col">
+  <div class="card">
+    <div class="card-title">Modern: f-strings (Python 3.6+)</div>
+    <p style="font-size: 8pt;">Fastest and cleanest formatting syntax evaluated directly at runtime via specialized bytecode:</p>
+    <pre style="margin: 4px 0; font-size: 7.5pt;"><code>name = <span class="code-string">"Anil"</span>; score = <span class="code-number">98.456</span>
+<span class="code-comment"># Precision formatting</span>
+<span class="code-builtin">print</span>(f<span class="code-string">"{name}: {score:.2f}"</span>)   <span class="code-comment"># Anil: 98.46</span>
+<span class="code-comment"># Alignment and padding</span>
+<span class="code-builtin">print</span>(f<span class="code-string">"{name:>10}"</span>)             <span class="code-comment"># '      Anil'</span>
+<span class="code-comment"># Debug expression (3.8+)</span>
+<span class="code-builtin">print</span>(f<span class="code-string">"{score=}"</span>)               <span class="code-comment"># score=98.456</span></code></pre>
+  </div>
+  <div class="card">
+    <div class="card-title">Legacy: % and .format()</div>
+    <p style="font-size: 8pt;">Historical formatters retained for backwards compatibility across older Python codebases:</p>
+    <pre style="margin: 4px 0; font-size: 7.5pt;"><code><span class="code-comment"># %-formatting (printf style)</span>
+<span class="code-builtin">print</span>(<span class="code-string">"%s scored %d"</span> % (<span class="code-string">"Anil"</span>, <span class="code-number">98</span>))
+
+<span class="code-comment"># str.format()</span>
+<span class="code-builtin">print</span>(<span class="code-string">"{} has {:.1f}"</span>.format(<span class="code-string">"Anil"</span>, <span class="code-number">98.456</span>))</code></pre>
+  </div>
+</div>
+
+<h2>Practical Classroom Algorithms on Strings (from Assignments)</h2>
+
+<div class="card" style="margin-bottom: 6px;">
+  <div class="card-title">🔒 1. Bank Account / Credit Card Number Masking (Assignment 26)</div>
+  <pre style="margin: 3px 0;"><code>card = <span class="code-string">"9876543210987654"</span>
+masked = <span class="code-string">"*"</span> * (<span class="code-builtin">len</span>(card) - <span class="code-number">4</span>) + card[-<span class="code-number">4</span>:]
+<span class="code-builtin">print</span>(masked)  <span class="code-comment"># ************7654</span>
+</code></pre>
+</div>
+
+<div class="card" style="margin-bottom: 6px;">
+  <div class="card-title">🔠 2. Manual Title Case without using <code>.title()</code> (Assignment 25)</div>
+  <pre style="margin: 3px 0;"><code>sentence = <span class="code-string">"python programming from scratch"</span>
+words = sentence.split()
+capitalized_words = [w[<span class="code-number">0</span>].upper() + w[<span class="code-number">1</span>:].lower() <span class="code-keyword">for</span> w <span class="code-keyword">in</span> words]
+result = <span class="code-string">" "</span>.join(capitalized_words)
+<span class="code-builtin">print</span>(result)  <span class="code-comment"># 'Python Programming From Scratch'</span>
+</code></pre>
+</div>
+
+<div class="card">
+  <div class="card-title">📦 3. Run-Length Decompression / String Expansion (Assignment 30)</div>
+  <pre style="margin: 3px 0;"><code>encoded = <span class="code-string">"a3b2c4"</span>  <span class="code-comment"># Output desired: 'aaabbcccc'</span>
+expanded = <span class="code-string">""</span>
+<span class="code-keyword">for</span> i <span class="code-keyword">in</span> <span class="code-builtin">range</span>(<span class="code-number">0</span>, <span class="code-builtin">len</span>(encoded), <span class="code-number">2</span>):
+    char = encoded[i]
+    count = <span class="code-builtin">int</span>(encoded[i+<span class="code-number">1</span>])
+    expanded += char * count
+<span class="code-builtin">print</span>(expanded)  <span class="code-comment"># 'aaabbcccc'</span>
+</code></pre>
+</div>
+
+<!-- ================= MODULE 6 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 6: Sequence Types - Lists</span></div>
+
+<h1>6. Sequence Data Types: Lists (<code>list</code>)</h1>
+
+<p>
+  A <strong>list</strong> (<code>list</code>) is an ordered, mutable sequence of heterogeneous Python objects. It is the most versatile general-purpose container in Python.
+</p>
+
+<h2>Internal Memory Architecture: Dynamic Array of Pointers</h2>
+<p>
+  In CPython, a list is implemented as a <code>PyListObject</code>, which wraps a dynamically resized array of object pointers (<code>PyObject** ob_item</code>).
+</p>
+<ul>
+  <li><strong>Pointer Array:</strong> The list itself does not store the raw data values contiguously; it stores a contiguous array of 8-byte memory addresses (pointers) pointing to individual objects located elsewhere in heap memory.</li>
+  <li><strong>Over-Allocation Growth Pattern:</strong> To guarantee amortized $O(1)$ append times, CPython allocates more memory slots than immediately requested. When capacity is exceeded, it expands using the formula:
+    <br><code>new_allocated = (newsize >> 3) + (newsize &lt; 9 ? 3 : 6) + newsize</code>.
+  </li>
+  <li><strong>Time Complexities:</strong>
+    <ul>
+      <li>Random index access (<code>lst[i]</code>): $O(1)$ constant time.</li>
+      <li>Append to end (<code>lst.append(x)</code>): $O(1)$ amortized.</li>
+      <li>Pop from end (<code>lst.pop()</code>): $O(1)$.</li>
+      <li>Insert/Delete at index 0 (<code>lst.insert(0, x)</code> or <code>lst.pop(0)</code>): $O(n)$ linear time because all subsequent pointers must shift.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Comprehensive List Methods Catalog</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Operation / Method</th>
+      <th>Time Complexity</th>
+      <th>Description &amp; Key Behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.append(item)</code></td>
+      <td>$O(1)$ amortized</td>
+      <td>Appends a single element to the end of the list in-place.</td>
+    </tr>
+    <tr>
+      <td><code>.extend(iterable)</code></td>
+      <td>$O(k)$ where $k$=len</td>
+      <td>Iterates over the given iterable and appends each element individually.</td>
+    </tr>
+    <tr>
+      <td><code>.insert(index, item)</code></td>
+      <td>$O(n)$</td>
+      <td>Inserts element at the designated index, shifting remaining elements right.</td>
+    </tr>
+    <tr>
+      <td><code>.remove(val)</code></td>
+      <td>$O(n)$</td>
+      <td>Searches and removes the <em>first</em> occurrence of value. Raises <code>ValueError</code> if missing.</td>
+    </tr>
+    <tr>
+      <td><code>.pop([index])</code></td>
+      <td>$O(1)$ end / $O(n)$ mid</td>
+      <td>Removes and returns item at index (default is last item: <code>index=-1</code>).</td>
+    </tr>
+    <tr>
+      <td><code>.clear()</code></td>
+      <td>$O(n)$</td>
+      <td>Removes all items from the list, resetting size to 0.</td>
+    </tr>
+    <tr>
+      <td><code>.index(val)</code></td>
+      <td>$O(n)$</td>
+      <td>Returns first index of value. Raises <code>ValueError</code> if not present.</td>
+    </tr>
+    <tr>
+      <td><code>.count(val)</code></td>
+      <td>$O(n)$</td>
+      <td>Returns total number of occurrences of value in list.</td>
+    </tr>
+    <tr>
+      <td><code>.sort(key=None, reverse=False)</code></td>
+      <td>$O(n \log n)$</td>
+      <td>Sorts list <strong>in-place</strong> using Timsort algorithm. Returns <code>None</code>!</td>
+    </tr>
+    <tr>
+      <td><code>.reverse()</code></td>
+      <td>$O(n)$</td>
+      <td>Reverses elements of list <strong>in-place</strong>. Returns <code>None</code>.</td>
+    </tr>
+    <tr>
+      <td><code>sorted(iterable)</code></td>
+      <td>$O(n \log n)$</td>
+      <td>Built-in function: returns a <strong>brand new sorted list</strong>, leaves original untouched.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout warning">
+  <div class="callout-title">⚠️ The List Replication Trap: `[[0] * 3] * 3`</div>
+  <p>
+    When you write <code>grid = [[0] * 3] * 3</code>, Python duplicates the <em>same inner list reference</em> three times! If you mutate one row, all rows change simultaneously:
+  </p>
+  <pre style="margin: 4px 0;"><code>grid = [[<span class="code-number">0</span>] * <span class="code-number">3</span>] * <span class="code-number">3</span>
+grid[<span class="code-number">0</span>][<span class="code-number">0</span>] = <span class="code-number">99</span>
+<span class="code-builtin">print</span>(grid)  <span class="code-comment"># [[99, 0, 0], [99, 0, 0], [99, 0, 0]]  -- BUG!</span>
+
+<span class="code-comment"># CORRECT PATTERN: Use List Comprehension</span>
+correct_grid = [[<span class="code-number">0</span> <span class="code-keyword">for</span> _ <span class="code-keyword">in</span> <span class="code-builtin">range</span>(<span class="code-number">3</span>)] <span class="code-keyword">for</span> _ <span class="code-keyword">in</span> <span class="code-builtin">range</span>(<span class="code-number">3</span>)]
+correct_grid[<span class="code-number">0</span>][<span class="code-number">0</span>] = <span class="code-number">99</span>
+<span class="code-builtin">print</span>(correct_grid)  <span class="code-comment"># [[99, 0, 0], [0, 0, 0], [0, 0, 0]]  -- SUCCESS!</span>
+</code></pre>
+</div>
+
+<h2>Practical Algorithms on Lists (from Assignments &amp; Exam Prep)</h2>
+
+<div class="card" style="margin-bottom: 6px;">
+  <div class="card-title">🏔️ 1. Peak Element Detection (Assignment 32)</div>
+  <pre style="margin: 3px 0;"><code>arr = [<span class="code-number">10</span>, <span class="code-number">20</span>, <span class="code-number">15</span>, <span class="code-number">2</span>, <span class="code-number">23</span>, <span class="code-number">90</span>, <span class="code-number">67</span>]
+n = <span class="code-builtin">len</span>(arr)
+peaks = []
+<span class="code-keyword">for</span> i <span class="code-keyword">in</span> <span class="code-builtin">range</span>(n):
+    <span class="code-keyword">if</span> i == <span class="code-number">0</span> <span class="code-keyword">and</span> arr[<span class="code-number">0</span>] >= arr[<span class="code-number">1</span>]: peaks.append(arr[i])
+    <span class="code-keyword">elif</span> i == n - <span class="code-number">1</span> <span class="code-keyword">and</span> arr[-<span class="code-number">1</span>] >= arr[-<span class="code-number">2</span>]: peaks.append(arr[i])
+    <span class="code-keyword">elif</span> arr[i] >= arr[i-<span class="code-number">1</span>] <span class="code-keyword">and</span> arr[i] >= arr[i+<span class="code-number">1</span>]: peaks.append(arr[i])
+<span class="code-builtin">print</span>(peaks)  <span class="code-comment"># [20, 90]</span>
+</code></pre>
+</div>
+
+<div class="card">
+  <div class="card-title">👑 2. Leaders in an Array in $O(N)$ Time (Assignment 31)</div>
+  <pre style="margin: 3px 0;"><code>arr = [<span class="code-number">16</span>, <span class="code-number">17</span>, <span class="code-number">4</span>, <span class="code-number">3</span>, <span class="code-number">5</span>, <span class="code-number">2</span>]
+leaders = []
+max_right = <span class="code-builtin">float</span>(<span class="code-string">'-inf'</span>)
+<span class="code-keyword">for</span> x <span class="code-keyword">in</span> <span class="code-builtin">reversed</span>(arr):
+    <span class="code-keyword">if</span> x > max_right:
+        leaders.append(x)
+        max_right = x
+leaders.reverse()
+<span class="code-builtin">print</span>(leaders)  <span class="code-comment"># [17, 5, 2]</span>
+</code></pre>
+</div>
+
+<!-- ================= MODULE 7 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 7: Tuples &amp; Range</span></div>
+
+<h1>7. Sequence Data Types: Tuples &amp; NamedTuples</h1>
+
+<h2>Tuples (<code>tuple</code>)</h2>
+<p>
+  A <strong>tuple</strong> is an ordered, immutable sequence of heterogeneous objects. Tuples are constructed using commas (parentheses are optional for grouping): <code>t = (1, 2, 3)</code> or <code>t = 1, 2, 3</code>.
+</p>
+
+<h3>Core Properties &amp; Gotchas</h3>
+<ul>
+  <li><strong>Single-Element Tuple Trait:</strong> A single element inside parentheses is parsed as an expression, not a tuple! A trailing comma is <strong>mandatory</strong>:
+    <pre><code>x = (<span class="code-number">42</span>)    <span class="code-comment"># Evaluates to int!</span>
+y = (<span class="code-number">42</span>,)   <span class="code-comment"># Tuple of length 1</span>
+</code></pre>
+  </li>
+  <li><strong>Immutability of Reference vs Mutability of Content:</strong> A tuple’s references cannot change, but if an element inside is mutable, that inner element can still be modified:
+    <pre><code>t = ([<span class="code-number">1</span>, <span class="code-number">2</span>], <span class="code-number">3</span>)
+t[<span class="code-number">0</span>].append(<span class="code-number">99</span>)     <span class="code-comment"># Perfectly valid! t is now ([1, 2, 99], 3)</span>
+</code></pre>
+  </li>
+  <li><strong>The Infamous <code>t[0] += [4]</code> Anomaly:</strong>
+    <p>Executing <code>t = ([1, 2], 3); t[0] += [4]</code> executes the in-place extension on the inner list (mutating it to <code>[1, 2, 4]</code>), but then attempts to re-assign the list reference back to <code>t[0]</code>. Because tuples reject item assignment, Python raises <code>TypeError: 'tuple' object does not support item assignment</code>—leaving the list mutated in memory despite the error!</p>
+  </li>
+  <li><strong>Memory &amp; Performance Advantage:</strong> Because tuple sizes are fixed at creation, CPython allocates exactly the required memory without over-allocation buffers, and maintains a free list of recycled tuples up to length 20, making tuple allocation faster than lists.</li>
+</ul>
+
+<h2>Sequence Unpacking</h2>
+<pre><code><span class="code-comment"># Basic unpacking</span>
+a, b, c = (<span class="code-number">10</span>, <span class="code-number">20</span>, <span class="code-number">30</span>)
+
+<span class="code-comment"># Extended unpacking using starred expression (*)</span>
+first, *middle, last = [<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>, <span class="code-number">4</span>, <span class="code-number">5</span>]
+<span class="code-builtin">print</span>(first)   <span class="code-comment"># 1</span>
+<span class="code-builtin">print</span>(middle)  <span class="code-comment"># [2, 3, 4] (always unpacked as a list)</span>
+<span class="code-builtin">print</span>(last)    <span class="code-comment"># 5</span>
+</code></pre>
+
+<h2>NamedTuples (<code>collections.namedtuple</code>)</h2>
+<p>
+  As covered in <strong>Assignment 37</strong>, <code>namedtuple</code> combines the memory efficiency and immutability of tuples with clean attribute access:
+</p>
+<pre><code><span class="code-keyword">from</span> collections <span class="code-keyword">import</span> namedtuple
+
+<span class="code-comment"># Define record schema</span>
+Employee = namedtuple(<span class="code-string">'Employee'</span>, [<span class="code-string">'id'</span>, <span class="code-string">'name'</span>, <span class="code-string">'dept'</span>, <span class="code-string">'salary'</span>])
+
+emp1 = Employee(<span class="code-number">101</span>, <span class="code-string">"Anil Yadav"</span>, <span class="code-string">"Engineering"</span>, <span class="code-number">95000.0</span>)
+<span class="code-builtin">print</span>(emp1.name)    <span class="code-comment"># Attribute access: 'Anil Yadav'</span>
+<span class="code-builtin">print</span>(emp1[<span class="code-number">3</span>])      <span class="code-comment"># Index access: 95000.0</span>
+
+<span class="code-comment"># Practical query: Max salary employee in list</span>
+team = [
+    Employee(<span class="code-number">1</span>, <span class="code-string">"Alice"</span>, <span class="code-string">"Dev"</span>, <span class="code-number">80000</span>),
+    Employee(<span class="code-number">2</span>, <span class="code-string">"Bob"</span>, <span class="code-string">"QA"</span>, <span class="code-number">72000</span>),
+    Employee(<span class="code-number">3</span>, <span class="code-string">"Charlie"</span>, <span class="code-string">"Dev"</span>, <span class="code-number">91000</span>)
+]
+top_earner = <span class="code-builtin">max</span>(team, key=<span class="code-keyword">lambda</span> e: e.salary)
+<span class="code-builtin">print</span>(top_earner.name)  <span class="code-comment"># Charlie</span>
+</code></pre>
+
+<h2><code>range</code> Objects</h2>
+<p>
+  The <code>range</code> type represents an immutable arithmetic progression of integers.
+</p>
+<ul>
+  <li><strong>Constant Memory:</strong> Regardless of whether it covers 10 numbers or 10 billion numbers, a <code>range</code> object always occupies the exact same fixed amount of memory (48 bytes on 64-bit systems) because it stores only <code>start</code>, <code>stop</code>, and <code>step</code> values.</li>
+  <li><strong>$O(1)$ Operations:</strong> In Python 3, index lookups (<code>r[5]</code>) and membership checks (<code>999 in r</code>) are calculated mathematically in $O(1)$ time without iterating!</li>
+</ul>
+
+<!-- ================= MODULE 8 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 8: Set Types</span></div>
+
+<h1>8. Set Data Types: <code>set</code> &amp; <code>frozenset</code></h1>
+
+<p>
+  A <strong>set</strong> is an unordered, mutable collection of unique, hashable objects. Mathematical set theory operations are implemented at C-speed using hash tables.
+</p>
+
+<h2>Hashability Requirement</h2>
+<p>
+  To reside in a set, an object must be <strong>hashable</strong>: it must possess a hash code that never changes throughout its lifetime (implementing <code>__hash__()</code>) and be comparable to other objects (implementing <code>__eq__()</code>).
+</p>
+<ul>
+  <li>Mutable objects (like lists, sets, and dictionaries) are unhashable: <code>{[1, 2]}</code> raises <code>TypeError: unhashable type: 'list'</code>.</li>
+  <li>To create an empty set, you <strong>must</strong> write <code>s = set()</code>. Writing <code>s = {}</code> creates an empty dictionary!</li>
+</ul>
+
+<h2>Mathematical Set Operations</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Operator</th>
+      <th>Method Equivalent</th>
+      <th>Mathematical Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Union</strong></td>
+      <td><code>A | B</code></td>
+      <td><code>A.union(B)</code></td>
+      <td>All unique elements present in A, B, or both.</td>
+    </tr>
+    <tr>
+      <td><strong>Intersection</strong></td>
+      <td><code>A &amp; B</code></td>
+      <td><code>A.intersection(B)</code></td>
+      <td>Elements present simultaneously in both A and B.</td>
+    </tr>
+    <tr>
+      <td><strong>Difference</strong></td>
+      <td><code>A - B</code></td>
+      <td><code>A.difference(B)</code></td>
+      <td>Elements present in A that are NOT in B.</td>
+    </tr>
+    <tr>
+      <td><strong>Symmetric Diff</strong></td>
+      <td><code>A ^ B</code></td>
+      <td><code>A.symmetric_difference(B)</code></td>
+      <td>Elements in A or B, but NOT in both (exclusive-OR).</td>
+    </tr>
+    <tr>
+      <td><strong>Subset</strong></td>
+      <td><code>A &lt;= B</code></td>
+      <td><code>A.issubset(B)</code></td>
+      <td>Returns True if all elements of A are inside B.</td>
+    </tr>
+    <tr>
+      <td><strong>Superset</strong></td>
+      <td><code>A &gt;= B</code></td>
+      <td><code>A.issuperset(B)</code></td>
+      <td>Returns True if A contains all elements of B.</td>
+    </tr>
+    <tr>
+      <td><strong>Disjoint</strong></td>
+      <td>N/A</td>
+      <td><code>A.isdisjoint(B)</code></td>
+      <td>Returns True if A and B have zero elements in common.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout warning">
+  <div class="callout-title">⚠️ remove() vs discard()</div>
+  <ul>
+    <li><code>s.remove(x)</code> removes element <code>x</code>. If <code>x</code> is not present in the set, it raises a <code>KeyError</code>.</li>
+    <li><code>s.discard(x)</code> safely removes element <code>x</code> if present, and does nothing without error if absent.</li>
+  </ul>
+</div>
+
+<h2>The <code>frozenset</code> Type</h2>
+<p>
+  A <code>frozenset</code> is an immutable, hashable version of a set. Because it is immutable, its contents cannot be changed after instantiation.
+</p>
+<pre><code><span class="code-comment"># Frozenset can be used as a dictionary key or placed inside another set!</span>
+fs1 = <span class="code-builtin">frozenset</span>([<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>])
+fs2 = <span class="code-builtin">frozenset</span>([<span class="code-number">3</span>, <span class="code-number">4</span>, <span class="code-number">5</span>])
+
+nested_set = {fs1, fs2}  <span class="code-comment"># Valid! Standard set of sets is illegal</span>
+cache = {fs1: <span class="code-string">"Result A"</span>, fs2: <span class="code-string">"Result B"</span>}  <span class="code-comment"># Valid dictionary keys!</span>
+</code></pre>
+
+<!-- ================= MODULE 9 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 9: Mapping Types - Dictionaries</span></div>
+
+<h1>9. Mapping Data Type: Dictionaries (<code>dict</code>)</h1>
+
+<p>
+  A <strong>dictionary</strong> (<code>dict</code>) is an associative mapping data structure storing key-value pairs. Keys must be unique and hashable; values can be arbitrary Python objects.
+</p>
+
+<h2>CPython Compact Dict Architecture (Python 3.6+)</h2>
+<p>
+  Historically, Python dictionaries were sparse hash tables that wasted substantial memory. Since Python 3.6, CPython uses a revolutionary <strong>compact dictionary design</strong>:
+</p>
+<ul>
+  <li><strong>Dense Entry Table:</strong> Key references, hash values, and value pointers are packed sequentially into a dense array: <code>entries = [ [hash, key_ptr, val_ptr], ... ]</code>.</li>
+  <li><strong>Small Hash Index Array:</strong> A compact indices array maps hash table buckets to indices in the dense table.</li>
+  <li><strong>Benefits:</strong> Reduces memory footprint by 20% to 25% and automatically guarantees <strong>insertion order preservation</strong> as an official language specification feature.</li>
+</ul>
+
+<h2>Core Dictionary Methods Catalog</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Method / Operation</th>
+      <th>Complexity</th>
+      <th>Description &amp; Behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>d[key]</code></td>
+      <td>$O(1)$</td>
+      <td>Access value by key. Raises <code>KeyError</code> if key is missing.</td>
+    </tr>
+    <tr>
+      <td><code>d.get(key, default=None)</code></td>
+      <td>$O(1)$</td>
+      <td>Safe lookup. Returns default value instead of raising <code>KeyError</code>.</td>
+    </tr>
+    <tr>
+      <td><code>d.setdefault(key, default)</code></td>
+      <td>$O(1)$</td>
+      <td>Returns value if key exists; otherwise inserts <code>key: default</code> and returns default.</td>
+    </tr>
+    <tr>
+      <td><code>d.update(other)</code></td>
+      <td>$O(k)$</td>
+      <td>Merges key-value pairs from another dictionary or iterable into <code>d</code> in-place.</td>
+    </tr>
+    <tr>
+      <td><code>d.pop(key[, default])</code></td>
+      <td>$O(1)$</td>
+      <td>Removes key and returns its value. Raises <code>KeyError</code> if missing and no default provided.</td>
+    </tr>
+    <tr>
+      <td><code>d.popitem()</code></td>
+      <td>$O(1)$</td>
+      <td>Removes and returns the last inserted <code>(key, value)</code> tuple (LIFO order).</td>
+    </tr>
+    <tr>
+      <td><code>d.keys()</code>, <code>.values()</code>, <code>.items()</code></td>
+      <td>$O(1)$</td>
+      <td>Returns dynamic <strong>view objects</strong> that reflect real-time changes to the dictionary without copying.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Classroom Dictionary Patterns (Assignments 39 &amp; 40)</h2>
+
+<div class="card" style="margin-bottom: 6px;">
+  <div class="card-title">📊 Frequency Counter / Character Histogram</div>
+  <pre style="margin: 3px 0;"><code>text = <span class="code-string">"engineering"</span>
+freq = {}
+<span class="code-keyword">for</span> char <span class="code-keyword">in</span> text:
+    freq[char] = freq.get(char, <span class="code-number">0</span>) + <span class="code-number">1</span>
+<span class="code-builtin">print</span>(freq)  <span class="code-comment"># {'e': 3, 'n': 3, 'g': 2, 'i': 2, 'r': 1}</span>
+</code></pre>
+</div>
+
+<div class="card">
+  <div class="card-title">🏥 Nested Dictionary Processing: Hospital Records (Assignment 40)</div>
+  <pre style="margin: 3px 0;"><code>patients = {
+    <span class="code-number">101</span>: {<span class="code-string">"name"</span>: <span class="code-string">"Anil"</span>, <span class="code-string">"age"</span>: <span class="code-number">22</span>, <span class="code-string">"diagnosis"</span>: <span class="code-string">"Fever"</span>, <span class="code-string">"bill"</span>: <span class="code-number">1500</span>},
+    <span class="code-number">102</span>: {<span class="code-string">"name"</span>: <span class="code-string">"Ravi"</span>, <span class="code-string">"age"</span>: <span class="code-number">45</span>, <span class="code-string">"diagnosis"</span>: <span class="code-string">"Cardiac"</span>, <span class="code-string">"bill"</span>: <span class="code-number">45000</span>}
+}
+<span class="code-comment"># Calculate total billing</span>
+total_revenue = <span class="code-builtin">sum</span>(p[<span class="code-string">"bill"</span>] <span class="code-keyword">for</span> p <span class="code-keyword">in</span> patients.values())
+<span class="code-builtin">print</span>(f<span class="code-string">"Total Revenue: {total_revenue}"</span>)  <span class="code-comment"># 46500</span>
+</code></pre>
+</div>
+
+<div class="callout warning">
+  <div class="callout-title">⚠️ The Dictionary Mutation during Iteration Trap</div>
+  Modifying a dictionary’s keys while iterating over it raises:
+  <code>RuntimeError: dictionary changed size during iteration</code>.
+  Always iterate over a list copy of keys: <code>for k in list(d.keys()): del d[k]</code>.
+</div>
+
+<!-- ================= MODULE 10 & 11 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 10: Type Casting &amp; Operators</span></div>
+
+<h1>10. Type Casting &amp; Operators Evaluation</h1>
+
+<h2>Implicit Type Casting (Type Promotion)</h2>
+<p>
+  Python automatically converts one operand into a wider compatible data type during arithmetic operations to prevent precision loss:
+</p>
+<pre><code>a = <span class="code-number">10</span>      <span class="code-comment"># int</span>
+b = <span class="code-number">2.5</span>     <span class="code-comment"># float</span>
+c = a + b   <span class="code-comment"># c is promoted automatically to float: 12.5</span>
+d = <span class="code-builtin">True</span> + <span class="code-number">5</span> <span class="code-comment"># d is promoted to int: 6</span>
+</code></pre>
+
+<h2>Explicit Type Casting (Conversion Functions)</h2>
+<p>
+  Programmers explicitly invoke constructor functions to convert between types:
+</p>
+<ul>
+  <li><code>int(x, [base])</code>: Truncates floats toward zero (<code>int(3.9) == 3</code>, <code>int(-3.9) == -3</code>). Parses numeric strings (<code>int("100")</code>).</li>
+  <li><code>float(x)</code>: Converts integer or numeric string to floating-point (<code>float("3.14") == 3.14</code>).</li>
+  <li><code>str(x)</code>: Converts any object into its readable string representation via <code>x.__str__()</code>.</li>
+  <li><code>bool(x)</code>: Converts value according to truthiness rules.</li>
+</ul>
+
+<div class="callout warning">
+  <div class="callout-title">⚠️ Common Type Casting Traps</div>
+  <ul>
+    <li><code>int("10.5")</code> raises <code>ValueError: invalid literal for int() with base 10: '10.5'</code>! You must convert to float first: <code>int(float("10.5"))</code>.</li>
+    <li><code>bool("False")</code> evaluates to <code>True</code>! Any non-empty string is truthy in Python. Only <code>bool("")</code> is <code>False</code>.</li>
+    <li><code>float(10+5j)</code> raises <code>TypeError: can't convert complex to float</code>.</li>
+  </ul>
+</div>
+
+<h2>Operator Precedence &amp; Associativity Table</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Precedence Level</th>
+      <th>Operators</th>
+      <th>Description</th>
+      <th>Associativity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 (Highest)</td>
+      <td><code>()</code>, <code>[]</code>, <code>{}</code></td>
+      <td>Parentheses, grouping, indexing, slicing</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code>**</code></td>
+      <td>Exponentiation</td>
+      <td><strong>Right-to-Left</strong> (e.g. <code>2**3**2 = 2**9 = 512</code>)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code>+x</code>, <code>-x</code>, <code>~x</code></td>
+      <td>Unary positive, negation, bitwise NOT</td>
+      <td>Right-to-Left</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
+      <td>Multiplication, division, floor division, modulo</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code>+</code>, <code>-</code></td>
+      <td>Addition, subtraction</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code>&lt;&lt;</code>, <code>&gt;&gt;</code></td>
+      <td>Bitwise left and right shifts</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code>&amp;</code></td>
+      <td>Bitwise AND</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code>^</code></td>
+      <td>Bitwise XOR</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><code>|</code></td>
+      <td>Bitwise OR</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>is</code>, <code>in</code></td>
+      <td>Comparisons, identity, and membership</td>
+      <td>Left-to-Right (Chained)</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><code>not</code></td>
+      <td>Logical NOT</td>
+      <td>Right-to-Left</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><code>and</code></td>
+      <td>Logical AND (short-circuit)</td>
+      <td>Left-to-Right</td>
+    </tr>
+    <tr>
+      <td>13 (Lowest)</td>
+      <td><code>or</code></td>
+      <td>Logical OR (short-circuit)</td>
+      <td>Left-to-Right</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Short-Circuit Logical Evaluation &amp; Return Semantics</h2>
+<p>
+  Unlike languages where <code>&amp;&amp;</code> and <code>||</code> strictly return boolean <code>true/false</code>, Python's <code>and</code> and <code>or</code> operators return the <strong>exact operand value</strong> that determined the outcome:
+</p>
+<ul>
+  <li><code>A and B</code>: If <code>A</code> is falsy, returns <code>A</code> immediately without evaluating <code>B</code>. Otherwise, returns <code>B</code>.</li>
+  <li><code>A or B</code>: If <code>A</code> is truthy, returns <code>A</code> immediately without evaluating <code>B</code>. Otherwise, returns <code>B</code>.</li>
+  <li><strong>Classroom Puzzle: <code>10 and 0 or 5</code></strong>
+    <br>Step 1: Evaluate <code>10 and 0</code> ➔ 10 is truthy, so evaluate second operand: returns <code>0</code>.
+    <br>Step 2: Evaluate <code>0 or 5</code> ➔ 0 is falsy, so evaluate second operand: returns <code>5</code>!
+  </li>
+  <li><strong>Chained Comparisons:</strong> <code>5 &gt; 3 &gt; 1</code> evaluates as <code>(5 &gt; 3) and (3 &gt; 1)</code> ➔ <code>True and True</code> ➔ <code>True</code>.</li>
+</ul>
+
+<!-- ================= MODULE 12 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 11: Classroom Assessment Questions</span></div>
+
+<h1>11. Classroom 71 Questions &amp; Master Interview Q&amp;A</h1>
+
+<p>
+  Selected high-yield conceptual questions and solutions derived directly from the classroom curriculum (<code>01_Basics/Class_Work/python_71_qs.txt</code>):
+</p>
+
+<div class="q-box">
+  <div class="q-title">Q1: Why is Python called an interpreted language if it compiles to bytecode?</div>
+  <div class="q-ans"><strong>A:</strong> Python is a hybrid. Source code is first compiled into intermediate bytecode (<code>.pyc</code>). It is called interpreted because this bytecode is not compiled into native machine code ahead of time; instead, it is interpreted line-by-line at runtime by the Python Virtual Machine (PVM).</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q2: What is the exact compilation pipeline in Python from source to CPU?</div>
+  <div class="q-ans"><strong>A:</strong> Source Code (<code>.py</code>) ➔ Lexical Analysis (Tokens) ➔ Syntax Parsing (Parse Tree) ➔ Abstract Syntax Tree (AST) ➔ Bytecode Generation (Code Object / <code>.pyc</code>) ➔ Execution via PVM runtime loop.</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q3: Why are strings immutable in Python?</div>
+  <div class="q-ans"><strong>A:</strong> Immutability guarantees: (1) <strong>Security &amp; Thread Safety</strong>—instances can be safely shared across threads without locks; (2) <strong>Hash Stability</strong>—strings can safely serve as dictionary keys and set elements; (3) <strong>Memory Optimization</strong>—enables CPython to intern identical strings to a single shared memory address.</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q4: What is the difference between `/` and `//` operators?</div>
+  <div class="q-ans"><strong>A:</strong> <code>/</code> performs true division and always returns a <code>float</code> (e.g. <code>10 / 2 == 5.0</code>). <code>//</code> performs floor division, rounding down towards negative infinity (e.g. <code>10 // 3 == 3</code>, and <code>-10 // 3 == -4</code>).</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q5: Why is `^` not the exponentiation operator in Python?</div>
+  <div class="q-ans"><strong>A:</strong> In Python, <code>^</code> is the bitwise XOR (exclusive-OR) operator (e.g., <code>5 ^ 3 == 6</code>). Exponentiation is performed using double asterisks: <code>**</code> (e.g., <code>2 ** 3 == 8</code>).</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q6: What is the output of `print(True + True)` and why?</div>
+  <div class="q-ans"><strong>A:</strong> Outputs <code>2</code>. Because <code>bool</code> is a subclass of <code>int</code>, <code>True</code> has an integer value of <code>1</code>. The <code>+</code> operator invokes integer addition: $1 + 1 = 2$.</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q7: What is the difference between `input()` and `print()`? Why does `input()` always return a string?</div>
+  <div class="q-ans"><strong>A:</strong> <code>print()</code> outputs data to <code>sys.stdout</code>. <code>input()</code> reads raw bytes from <code>sys.stdin</code> until a newline. It always returns a <code>str</code> to maintain generality and prevent unsafe automatic code evaluation. Numerical inputs must be explicitly cast: <code>int(input())</code>.</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q8: How does Python swap two variables without a third variable?</div>
+  <div class="q-ans"><strong>A:</strong> <code>a, b = b, a</code>. Python evaluates the right-hand side first, packing <code>(b, a)</code> into an anonymous tuple in memory, then unpacks that tuple into variables <code>a</code> and <code>b</code> on the left.</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q9: What happens when executing `x = 10; y = 10` vs `x = 300; y = 300` in terms of `id()`?</div>
+  <div class="q-ans"><strong>A:</strong> For <code>10</code>, <code>id(x) == id(y)</code> is <code>True</code> because 10 falls within CPython's small integer cache pool (<code>[-5, 256]</code>). For <code>300</code>, in interactive mode, separate <code>PyLongObject</code> instances are allocated, resulting in distinct memory addresses (<code>id(x) != id(y)</code>).</div>
+</div>
+
+<div class="q-box">
+  <div class="q-title">Q10: Why does `sys.getrefcount(obj)` return a value 1 higher than expected?</div>
+  <div class="q-ans"><strong>A:</strong> Because passing the object as an argument into <code>sys.getrefcount(obj)</code> creates a temporary reference on the function's execution stack frame during the call, incrementing the counter by 1.</div>
+</div>
+
+<!-- ================= MODULE 13 ================= -->
+<div class="page-break"></div>
+<div class="header-rule"><span>Python &amp; Data Types: Comprehensive Guide</span><span>Module 12: Assignments &amp; Reference</span></div>
+
+<h1>12. Assignment Patterns &amp; Quick Reference Cheatsheet</h1>
+
+<h2>Summary of Key Assignment Modules Completed</h2>
+<ul>
+  <li><strong>01_Input_Output (15 Assignments):</strong> Basic formatting, f-strings, <code>sep</code> and <code>end</code> parameters, multiline input processing, resume and menu printers.</li>
+  <li><strong>02_Conditions_and_Branching (8 Assignments):</strong> Nested decision structures, leap year algorithms, grade evaluation, boundary validation.</li>
+  <li><strong>03_Calculations_and_Operators (10 Assignments):</strong> Formula evaluations, billing calculation with slab tariffs, insurance eligibility, compound interest.</li>
+  <li><strong>04_Loops_and_Numbers:</strong> Armstrong numbers, palindromes, prime detection, factorial, Fibonacci sequences, <code>for-else</code> and <code>while-else</code> search patterns.</li>
+  <li><strong>05_Pattern_Programming:</strong> Pyramid patterns, diamond stars, inverted triangles, numerical matrix shapes.</li>
+  <li><strong>06_Strings (Assignments 24–30):</strong> Character frequency, privacy masking, special character cleaners, substring algorithms, email validators.</li>
+  <li><strong>07_Lists_and_Arrays (Assignments 31–36):</strong> Peak element detection, array leaders, 2D matrix rotations, second largest element, list comprehensions.</li>
+  <li><strong>08_Tuples_and_NamedTuples (Assignments 36–37):</strong> Immutable coordinate pairs, <code>namedtuple</code> salary analysis, group aggregation.</li>
+  <li><strong>09_Sets (Assignment 38):</strong> Student club memberships, Venn union/intersection, deduplication pipelines.</li>
+  <li><strong>10_Dictionaries (Assignments 39–40):</strong> Shopping cart aggregation, hospital patient records, dynamic billing queries.</li>
+</ul>
+
+<h2>Master Quick Reference Cheatsheet</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Recommended Python Idiom</th>
+      <th>Key Benefit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Reverse a sequence</strong></td>
+      <td><code>seq[::-1]</code> or <code>reversed(seq)</code></td>
+      <td>Fast C-level slicing or lazy generator</td>
+    </tr>
+    <tr>
+      <td><strong>Deduplicate list</strong></td>
+      <td><code>list(dict.fromkeys(lst))</code></td>
+      <td>Deduplicates <em>while preserving insertion order</em></td>
+    </tr>
+    <tr>
+      <td><strong>Safe Dict Lookup</strong></td>
+      <td><code>d.get(key, default)</code></td>
+      <td>Prevents uncaught <code>KeyError</code> exceptions</td>
+    </tr>
+    <tr>
+      <td><strong>Frequency Counting</strong></td>
+      <td><code>collections.Counter(iter)</code> or <code>d[k] = d.get(k, 0) + 1</code></td>
+      <td>$O(n)$ linear aggregation</td>
+    </tr>
+    <tr>
+      <td><strong>Swap variables</strong></td>
+      <td><code>a, b = b, a</code></td>
+      <td>Atomic tuple unpacking without temporary variable</td>
+    </tr>
+    <tr>
+      <td><strong>Check Singleton</strong></td>
+      <td><code>if val is None:</code></td>
+      <td>Guaranteed pointer identity check</td>
+    </tr>
+    <tr>
+      <td><strong>List Comprehension</strong></td>
+      <td><code>[x for x in seq if cond]</code></td>
+      <td>Emits fast <code>LIST_APPEND</code> bytecode</td>
+    </tr>
+    <tr>
+      <td><strong>Float Comparison</strong></td>
+      <td><code>math.isclose(a, b)</code></td>
+      <td>Safe floating-point tolerance check</td>
+    </tr>
+    <tr>
+      <td><strong>String Concatenation</strong></td>
+      <td><code>"".join(list_of_strings)</code></td>
+      <td>$O(n)$ single pre-calculated memory allocation</td>
+    </tr>
+    <tr>
+      <td><strong>Deep Copy Object</strong></td>
+      <td><code>copy.deepcopy(obj)</code></td>
+      <td>Recursively copies nested state and avoids reference mutation</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="margin-top: 30px; padding: 15px; border-top: 2px solid #0284c7; text-align: center; color: #64748b; font-size: 8.5pt;">
+  <strong>Python &amp; Data Types: Comprehensive Architecture &amp; Mastery Guide</strong><br>
+  Prepared for Academic &amp; Technical Reference • Repository: <code>AnilYadav17/Python</code> • Author: <strong>Anil Yadav</strong>
+</div>
+
+</body>
+</html>
