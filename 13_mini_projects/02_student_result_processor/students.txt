@@ -1,0 +1,11 @@
+101,Ajay,Python,85
+102,Rahul,Python,78
+103,Priya,Python,92
+104,Amit,Python,abc
+105,Neha,Python,88
+106,Rohit,Python
+107,Simran,Python,95
+108,Karan,Python,105
+109,Anita,Python,35
+110,Vikas,Python,65
+

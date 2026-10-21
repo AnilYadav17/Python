@@ -1,0 +1,7 @@
+101 - Ajay - Python - 85 - Very Good
+102 - Rahul - Python - 78 - Very Good
+103 - Priya - Python - 92 - Excellent
+105 - Neha - Python - 88 - Very Good
+107 - Simran - Python - 95 - Excellent
+109 - Anita - Python - 35 - Fail
+110 - Vikas - Python - 65 - Good
