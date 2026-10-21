@@ -1,0 +1,23 @@
+# ==============================================================================
+# Python Learning Hub — Dependencies & Tooling
+# ==============================================================================
+#
+# NOTE: The vast majority of this repository is built strictly using the
+# Python Standard Library (Python 3.10+). No external packages are required
+# to run the tutorials, assignments, data structures, or algorithmic problems!
+#
+# The optional packages below are provided for development, linting, testing,
+# and PDF document generation (Sources/generate_guide_pdf.py).
+#
+# To install development tooling:
+#     pip install -r requirements.txt
+# ==============================================================================
+
+# Code Quality & Testing (Optional)
+pytest>=7.4.0
+flake8>=6.1.0
+black>=23.9.0
+
+# Document & PDF Generation Tooling (Used in Sources/generate_guide_pdf.py)
+weasyprint>=60.0
+beautifulsoup4>=4.12.0
