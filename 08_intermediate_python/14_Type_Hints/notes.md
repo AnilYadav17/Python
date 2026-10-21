@@ -137,7 +137,7 @@
 
 ### How it works (internals, if relevant)
 - When a generic function is called, the static type checker binds `T` to the concrete argument type and infers the return type accordingly.
-- Since Python 3.12 (PEP 695), Python introduces native generic syntax: `def first[T](items: list[T]) -> T: ...`.
+- Since Python 3.12 (PEP 695), Python introduces native generic syntax: `def first[T](` `items: list[T]) -> T: ...`.
 
 ### Common mistakes / gotchas
 - Re-using a single `TypeVar` across independent unrelated parameters when they should be separate type variables (`T1`, `T2`).
