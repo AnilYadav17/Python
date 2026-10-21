@@ -7,12 +7,14 @@ This guide covers all key topics for your exam tomorrow, mapped directly to your
 ## 🗺️ Topic Breakdown & Quick Navigation
 | Topic | Assignment Days | Key Concepts | Files Link |
 | :--- | :--- | :--- | :--- |
-| **1. Strings** | 25, 26, 27, 28, 29, 30 | Validation, Parsing, Compression, Reversals, Cleaning | [25_18May/assi1.py](file:///home/aniiil/Desktop/Python_from_Scratch/01_Basics/25_18May/assi1.py) |
-| **2. Lists & Nested Lists** | 31, 32, 33, 34, 36 | Peak Finding, Leaders, Comprehension, Rotations | [31_28May/assi1.py](file:///home/aniiil/Desktop/Python_from_Scratch/01_Basics/31_28May/assi1.py) |
-| **3. Tuples & NamedTuples** | 37 | Immutability, `namedtuple` grouping, Aggregation | [37_5Jun/assi1.py](file:///home/aniiil/Desktop/Python_from_Scratch/01_Basics/37_5Jun/assi1.py) |
-| **4. Sets & Frozensets** | 38 | Venn Operations, Immutability, Nesting using `frozenset` | [38_8Jun/assi1.py](file:///home/aniiil/Desktop/Python_from_Scratch/01_Basics/38_8Jun/assi1.py) |
-| **5. Dictionaries & Nested Dicts** | 39 | Frequency Counting, Grouping, Nested Lookups | [39_11Jun/assi1.py](file:///home/aniiil/Desktop/Python_from_Scratch/01_Basics/39_11Jun/assi1.py) |
-| **6. 3D Matrices** | 34, 35 | Nested Loops, 3D Indexing, Traversal, Reductions | [34_1Jun/assi4.py](file:///home/aniiil/Desktop/Python_from_Scratch/01_Basics/34_1Jun/assi4.py) |
+| **1. Strings** | 25, 26, 27, 28, 29, 30 | Validation, Parsing, Compression, Reversals, Cleaning | [06_Strings/25_Email_Username_Validator](../09_practice_and_assignments/01_Basics/06_Strings/25_Email_Username_Validator/assi1.py) |
+| **2. Lists & Nested Lists** | 31, 32, 33, 34, 36 | Peak Finding, Leaders, Comprehension, Rotations | [07_Lists_and_Arrays/31_Array_Operations](../09_practice_and_assignments/01_Basics/07_Lists_and_Arrays/31_Array_Operations_and_Traversal/assi1.py) |
+| **3. Tuples & NamedTuples** | 37 | Immutability, `namedtuple` grouping, Aggregation | [08_Tuples/37_NamedTuple](../09_practice_and_assignments/01_Basics/08_Tuples_and_NamedTuples/37_NamedTuple_Salary_Analysis/assi1.py) |
+| **4. Sets & Frozensets** | 38 | Venn Operations, Immutability, Nesting using `frozenset` | [09_Sets/38_Student_Club](../09_practice_and_assignments/01_Basics/09_Sets/38_Student_Club_Memberships/assi1.py) |
+| **5. Dictionaries & Nested Dicts** | 39 | Frequency Counting, Grouping, Nested Lookups | [10_Dictionaries/39_Shopping_Cart](../09_practice_and_assignments/01_Basics/10_Dictionaries/39_Online_Shopping_Cart/assi1.py) |
+| **6. 2D/3D Matrices** | 34, 35 | Nested Loops, Indexing, Traversal, Reductions | [07_Lists_and_Arrays/35_Matrix](../09_practice_and_assignments/01_Basics/07_Lists_and_Arrays/35_Matrix_Operations_2D/assi4.py) |
+
+
 
 ---
 
