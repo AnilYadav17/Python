@@ -31,6 +31,6 @@ for i in n:
  if diff==0:
    diff=int(i)
  else:
-   new_diff) = diff-int(i)
+   new_diff = abs(diff - int(i))
    real_diff +=str(new_diff)
    print(new_diff,real_diff)
