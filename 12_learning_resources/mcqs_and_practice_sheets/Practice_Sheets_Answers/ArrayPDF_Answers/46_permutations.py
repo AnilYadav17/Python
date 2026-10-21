@@ -31,5 +31,5 @@ for i in range(len(nums)):
 	print(current+remaining)
 
 
-
-						!!!!!!!!!  INCOMPLETE !!!!!!!!!hhh
+# Note: Incomplete implementation attempt (requires backtracking)
+# TODO: Implement full permutations using itertools or backtracking recursion
