@@ -1,14 +1,44 @@
-# ⏱️ 11_Revision_and_Interview_Prep: 30-Day Mastery & Interview Notes
+# ⏱️ 11_Revision_and_Interview_Prep: Python Mastery, Deep Revision & Interview Prep
 
 ## Overview
-Preparing for technical interviews or college university examinations requires rapid, high-retention revision. This directory houses a complete **30-Day Python Revision Curriculum** crafted to review the entire language systematically—from syntax primitives to asynchronous I/O and type hinting.
+Preparing for technical interviews, architecture reviews, or comprehensive examinations requires rapid, high-retention revision combined with deep practical verification. This directory houses the complete **Python Mastery & Revision Suite**, structured into three high-impact resources:
 
-Each day's guide covers:
-1. Core Theory & Syntax Cheat Sheets
-2. Deep Under-the-Hood Mechanics (CPython internals, memory, LEGB)
-3. Code Demonstrations
-4. Common Interview Traps & Pitfalls
-5. Daily Practice Challenges
+1. 📖 **[Comprehensive Python In-Depth Revision Guide](./01_Python_InDepth_Revision.md)**: A monolithic, 1,430+ line master reference guide covering memory internals (CPython `PyObject`, ref counting, GC cycles), data structures Big-O, OOP, dunder dispatch, typing, AsyncIO, and top edge cases.
+2. 🧪 **[Python Mastery Lab](./python-mastery-lab/)**: An interactive production-grade engineering workspace containing 26 structured modules, 12 verified executable experiments, 9 end-to-end capstone projects, and a 67-test automated verification harness.
+3. 📅 **[30-Day Revision Curriculum](./30_days_revision/)**: A structured day-by-day modular study plan covering everything from primitive syntax to asyncio.
+
+---
+
+## 🚀 Quick Navigation
+
+| Resource | Scope / Level | Format | Direct Link |
+| :--- | :--- | :--- | :--- |
+| **Comprehensive Master Guide** | Language, Internals & Traps | In-Depth Document (~1,430 lines) | 📖 [01_Python_InDepth_Revision.md](./01_Python_InDepth_Revision.md) |
+| **Python Mastery Lab** | Professional Engineering | Executable Lab & 9 Capstone Projects | 🧪 [python-mastery-lab/](./python-mastery-lab/) |
+| **30-Day Daily Revision** | Daily Bite-Sized Study | 30 Structured Markdown Guides | 📅 [30_days_revision/](./30_days_revision/) |
+
+---
+
+## 🧪 Python Mastery Lab Highlights
+
+Located in **[`python-mastery-lab/`](./python-mastery-lab/)**:
+
+- **26 Knowledge Modules**: From runtime execution model (`00_orientation`) to C extensions and alternatives (`25_c_extensions_and_alternatives`).
+- **9 Capstone Projects**:
+  1. `01_cli_calculator`: AST expression evaluation, robust exception hierarchy.
+  2. `02_expense_tracker`: Clean domain models, JSON persistence, transaction validation.
+  3. `03_file_organizer`: Safe `pathlib` operations, collision resolution (`_1`, `_2`), JSON audit logging.
+  4. `04_log_analyzer`: Generator streaming pipeline ((1)$ memory), regex parsing, aggregated metrics.
+  5. `05_package_development`: Production `pyproject.toml` package (`pypulse`), strict typing, `__all__` exports.
+  6. `06_async_api_client`: AsyncIO context manager, exponential backoff retries, connection pooling.
+  7. `07_tested_cli_application`: Dependency injection, mock-tested hardware collectors, structured outputs.
+  8. `08_database_application`: SQLite repository pattern, schema migration management, atomic Unit of Work.
+  9. `09_production_style_python_service`: Enterprise service configuration, structured JSON logging, health probes.
+- **Automated Verification Harness**:
+  ```bash
+  cd python-mastery-lab
+  python3 -m unittest discover -s tests -v
+  ```
 
 ---
 
@@ -25,57 +55,12 @@ All daily revision guides are located in **[`30_days_revision/`](./30_days_revis
 
 ---
 
-## 📑 Complete Day-by-Day Index
-
-```text
-30_days_revision/
-├── Day_01_Variables_and_Data_Types.md
-├── Day_02_Operators.md
-├── Day_03_Strings_and_Formatting.md
-├── Day_04_Control_Flow_Conditionals.md
-├── Day_05_Loops_For_and_While.md
-├── Day_06_Lists_and_Methods.md
-├── Day_07_Tuples.md
-├── Day_08_Sets.md
-├── Day_09_Dictionaries.md
-├── Day_10_Functions_Basics.md
-├── Day_11_Advanced_Arguments_Args_Kwargs.md
-├── Day_12_Scope_and_LEGB_Rule.md
-├── Day_13_Lambda_Map_Filter_Reduce.md
-├── Day_14_Comprehensions.md
-├── Day_15_Modules_and_Packages.md
-├── Day_16_File_Handling.md
-├── Day_17_Exception_Handling.md
-├── Day_18_OOP_Classes_and_Objects.md
-├── Day_19_OOP_Types_of_Methods.md
-├── Day_20_OOP_Inheritance.md
-├── Day_21_OOP_Polymorphism_and_Magic_Methods.md
-├── Day_22_OOP_Encapsulation_and_Abstraction.md
-├── Day_23_Iterators_and_Generators.md
-├── Day_24_Decorators.md
-├── Day_25_Context_Managers.md
-├── Day_26_Regular_Expressions.md
-├── Day_27_Advanced_Collections.md
-├── Day_28_Concurrency_Multithreading.md
-├── Day_29_Asyncio.md
-└── Day_30_Type_Hinting_and_Best_Practices.md
-```
-
----
-
 ## 🎯 How to Use for Interview Prep
 
-1. **Quick Revision (1 Hour Before Interview):**
-   * Review Day 12 (LEGB Scope Rule).
-   * Review Day 18 - 22 (OOP Pillars, MRO, Dunder methods).
-   * Review Day 23 - 25 (Generators, Decorators, Context Managers).
-2. **Weekly Study Plan:**
-   * Tackle one revision guide each morning.
-   * Run the accompanying examples in **[08_intermediate_python](../08_intermediate_python/)**.
-   * Test your knowledge against the interview questions in each intermediate module.
-
----
-
-## Next Step
-
-👉 Browse reference PDFs, master books, and MCQ sheets in **[12_learning_resources](../12_learning_resources/)**!
+1. **Fast-Track (1 Hour Before Interview):**
+   * Review [01_Python_InDepth_Revision.md Section 1](#1-core-fundamentals-memory-model--assignment) for CPython memory, mutability & aliasing.
+   * Review Section 6 (LEGB Scope & Closures) and Section 7 (OOP, C3 Linearization MRO & Metaclasses).
+   * Review Section 14 (GIL, ThreadPool, ProcessPool, AsyncIO) and Section 15 (Edge Cases & Common Pitfalls).
+2. **Hands-On Verification:**
+   * Run the test suite in [`python-mastery-lab/`](./python-mastery-lab/) to verify runtime behaviors.
+   * Review capstone implementations in `28_projects/` for architectural patterns (Dependency Injection, Repository Pattern, Async Context Managers).

@@ -89,7 +89,7 @@ Follow this sequential progression to navigate the curriculum from zero to advan
 | 📁 **[08_intermediate_python](./08_intermediate_python/)** | 18 Architecture Modules: Concurrency, Memory, Big-O, TDD, Regex | 90 runnable advanced demos |
 | 📁 **[09_practice_and_assignments](./09_practice_and_assignments/)** | 640+ Solved Assignment Problems organized by subtopic | Question sheets + verified solutions |
 | 📁 **[10_coding_challenges](./10_coding_challenges/)** | LeetCode solutions (Arrays, Two Pointers, Strings, Sliding Window) | Algorithmic problem solving |
-| 📁 **[11_revision_and_interview_prep](./11_revision_and_interview_prep/)** | 30-Day Markdown Revision Challenge + Interview Cheatsheets | Daily structured revision sprint |
+| 📁 **[11_revision_and_interview_prep](./11_revision_and_interview_prep/)** | Comprehensive In-Depth Guide, Python Mastery Lab & 30-Day Sprint | 26 Modules, 9 Projects, 67 Automated Tests |
 | 📁 **[12_learning_resources](./12_learning_resources/)** | Master Reference PDFs, WeasyPrint generator, 16 MCQ sheets | High-yield offline revision books |
 | 📁 **[13_mini_projects](./13_mini_projects/)** | Hospital System, Student Result Engine, 4-Tier Banking App | Multi-file runnable applications |
 | 📁 **[14_tests_and_assessments](./14_tests_and_assessments/)** | Academic unit tests across learning timeline (April – September) | Scenario-based exam problems |
